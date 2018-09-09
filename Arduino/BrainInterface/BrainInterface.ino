@@ -2,30 +2,6 @@
 #include <Wire.h>
 #include "Adafruit_MCP23017.h"
 
-Adafruit_MCP23017 mcp;
-
-const byte LED_ACTIVATE = 10; // + led (2 bytes)
-const byte LED_DEACTIVATE = 11; // + led (2 bytes)
-
-boolean currentState = false;
-const byte SWITCH_ACTIVE = 30; // 2 bytes switch id
-const byte SWITCH_INACTIVE = 31; // 2 bytes switch id
-
-void setup() {
-  // put your setup code here, to run once:
-
-   //MCP23017
-    mcp.begin(0);      // use mcp with address 0
-    mcp.pinMode(0, INPUT);
-    mcp.pullUp(0, HIGH);  // turn on a 100K pullup internally
-
-    pinMode(13, OUTPUT);  // use the p13 LED as debugging
-
-    Serial.begin(9600);
-
-    //while (!Serial);
-}
-
 int16_t read16(byte data[2]) {
   int16_t result;
   ((int8_t *)&result)[0] = data[0]; // LSB
@@ -42,65 +18,52 @@ int32_t read32(byte data[4]) {
   return result;
 }
 
-void ReadUnityData(){
-  byte incomingByte = Serial.read();
-  
-  switch(incomingByte){
-    case LED_ACTIVATE:
-      byte ledByte1[2];
-      ledByte1[0] = Serial.read();
-      ledByte1[1] = Serial.read();
-      ActivateLED(read16(ledByte1));
-    break;
-    
-    case LED_DEACTIVATE:
-    byte ledByte2[2];
-      ledByte2[0] = Serial.read();
-      ledByte2[1] = Serial.read();
-      DeactivateLED(read16(ledByte2));
-    break;
-  }
+#define SWITCH_MAX_COUNT 16
+#define LED_MAX_COUNT 1024
+#define SOLENOID_MAX_COUNT 32
+#define SOLENOID_MAX_CONCURRENT 2 //max amount of solenoids being active at the same time
+
+const byte LED_ACTIVATE = 10; // + led (2 bytes)
+const byte LED_DEACTIVATE = 11; // + led (2 bytes)
+const byte LED_BLINK = 12; // + led (2 bytes) + interval (2 bytes)
+const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + interval (2 bytes) + times (byte)
+
+const byte SOLENOID_ACTIVATE = 1; // + solenoid (byte)
+const byte SOLENOID_DEACTIVATE = 2; // + solenoid (byte)
+const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
+
+const byte SWITCH_ACTIVE = 30; // 2 bytes switch id
+const byte SWITCH_INACTIVE = 31; // 2 bytes switch id
+
+#include "Switches.h"
+#include "PlayfieldParts.h"
+#include "SerialParse.h"
+
+
+unsigned long time;
+
+void setup() {
+  // put your setup code here, to run once:
+    pinMode(13, OUTPUT);  // use the p13 LED as debugging
+
+    //while (!Serial);
+
+    Switch_Setup();
+    Serial_Setup();
+    PlayfieldParts_Setup();
 }
 
-void ActivateLED(short led){
-  digitalWrite(led, HIGH);
-}
 
-void DeactivateLED(short led){
-  digitalWrite(led, LOW);
-}
+
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int deltaTime = millis() - time;
+  time = millis();
+
+  Switch_Update(deltaTime);
 
   //Receive data from unity
-  if (Serial.available() > 0) {
-    ReadUnityData();
-  }
-  
-  
-  //Check switch and send state to unity
-  if(mcp.digitalRead(0) == LOW && currentState == true)
-  {
-    currentState = false;
-    byte bytes[3];
-    bytes[0] = SWITCH_INACTIVE;
-    //Switch number
-    bytes[1] = 1;
-    bytes[2] = 0;
-    Serial.write(bytes, 3);
-    //Wait for bytes to be written before continuing
-    Serial.flush();
-  }
-  else if(mcp.digitalRead(0) == HIGH && currentState == false){
-    currentState = true;
-    byte bytes[3];
-    bytes[0] = SWITCH_ACTIVE;
-    //Switch number
-    bytes[1] = 1;
-    bytes[2] = 0;
-    Serial.write(bytes, 3);
-    //Wait for bytes to be written before continuing
-    Serial.flush();
-  }
+  Serial_Update(deltaTime);
+
+  PlayfieldParts_Update(deltaTime);
 }

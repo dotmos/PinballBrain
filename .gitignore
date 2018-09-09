@@ -1,2 +1,11 @@
 /Unity/PinballBrain/Library
 /Unity/PinballBrain/Temp
+/Unity/PinballBrain/.vs
+/Unity/PinballBrain/obj
+/Unity/PinballBrain/Assembly-CSharp-firstpass.csproj
+/Unity/PinballBrain/PinballBrain.sln
+/Unity/PinballBrain/UniRx.Async.csproj
+/Unity/PinballBrain/UniRx.Async.Editor.csproj
+/Unity/PinballBrain/UniRx.csproj
+/Unity/PinballBrain/UniRx.Examples.csproj
+/Unity/PinballBrain/Assembly-CSharp.csproj

@@ -51,7 +51,7 @@ public class GameBrain : BrainBase {
     protected override void SetupRules() {
         BrainInterface.OnSwitchActive(1).Subscribe(e => Debug.Log("Switch " + e + " active")).AddTo(this);
         BrainInterface.OnSwitchInactive(1).Subscribe(e => Debug.Log("Switch " + e + " inactive")).AddTo(this);
-        ConnectSwitchToLED(1, 13);
+        ConnectSwitchToLEDBlink(0, 13, 50, 3);
 
         /*
         //Blink led 13
