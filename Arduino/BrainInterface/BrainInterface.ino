@@ -25,16 +25,16 @@ int32_t read32(byte data[4]) {
 }
 
 //definitions
-#define SWITCH_MAX_COUNT 16
-#define LED_MAX_COUNT 1024
-#define SOLENOID_MAX_COUNT 32
-#define SOLENOID_MAX_CONCURRENT 2 //max amount of solenoids being active at the same time
+#define SWITCH_MAX_COUNT 16 //Maximum amount of switches. Change to your needs.
+#define LED_MAX_COUNT 128 //Maximum amount of LEDs. Change to your needs.
+#define SOLENOID_MAX_COUNT 32 //Maximum amount of solenoid. Change to your needs.
+#define SOLENOID_MAX_CONCURRENT 4 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
 
 //Message headers
-const byte LED_ACTIVATE = 10; // + led (2 bytes)
+const byte LED_ACTIVATE = 10; // + led (2 bytes) + color (3 bytes)
 const byte LED_DEACTIVATE = 11; // + led (2 bytes)
-const byte LED_BLINK = 12; // + led (2 bytes) + interval (2 bytes)
-const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + interval (2 bytes) + times (byte)
+const byte LED_BLINK = 12; // + led (2 bytes) + color (3 bytes) + interval (2 bytes)
+const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + color (3 bytes) + interval (2 bytes) + times (byte)
 
 const byte SOLENOID_ACTIVATE = 1; // + solenoid (byte)
 const byte SOLENOID_DEACTIVATE = 2; // + solenoid (byte)
