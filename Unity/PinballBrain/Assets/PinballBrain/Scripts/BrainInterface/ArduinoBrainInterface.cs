@@ -64,7 +64,7 @@ namespace PinballBrain {
             }
             */
 
-            this.serialPort = new AsyncSerial("COM" + serialPort, 9600);
+            this.serialPort = new AsyncSerial("COM" + serialPort, 57600);
 
             Observable.EveryUpdate().Subscribe(e => {
                 while (this.serialPort.HasData()) {

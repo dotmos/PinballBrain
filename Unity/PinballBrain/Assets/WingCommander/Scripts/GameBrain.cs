@@ -6,23 +6,6 @@ using UniRx;
 using System;
 
 public class GameBrain : BrainBase {
-
-    public class LEDBlinkData {
-        public byte red;
-        public byte green;
-        public byte blue;
-        public short interval;
-        public byte amount;
-
-        public LEDBlinkData(byte red, byte green, byte blue, short interval, byte amount) {
-            this.red = red;
-            this.green = green;
-            this.blue = blue;
-            this.interval = interval;
-            this.amount = amount;
-        }
-    }
-
     //Switches
     const short SWITCH_FLIPPER_LEFT = 0;
     const short SWITCH_FLIPPER_RIGHT = 1;
@@ -103,14 +86,7 @@ public class GameBrain : BrainBase {
         Debug.Log("Brain failure. Code " + errorCode);
     }
 
-    /// <summary>
-    /// Connects switch to led, using LEDBlinkData
-    /// </summary>
-    /// <param name="switchID"></param>
-    /// <param name="ledBlinkData"></param>
-    protected void ConnectSwitchToLEDBlink(short switchID, short led, LEDBlinkData ledBlinkData) {
-        ConnectSwitchToLEDBlink(switchID, led, ledBlinkData.red, ledBlinkData.green, ledBlinkData.blue, ledBlinkData.interval, ledBlinkData.amount);
-    }
+    
 
     protected override void SetupRules() {
         //Debug stuff

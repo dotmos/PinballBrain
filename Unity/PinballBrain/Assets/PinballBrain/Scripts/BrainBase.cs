@@ -13,11 +13,28 @@ namespace PinballBrain {
     public abstract class BrainBase : IBrain, IDisposable {
         protected IBrainInterface BrainInterface { get; private set; }
 
+        List<int> playerScore;
+        int currentPlayer = 0;
+        int maxPlayers = 4;
+        public class PlayerScoreChangedEvent {
+            public int playerID;
+            public int currentScore;
+        }
+        ReactiveCommand<PlayerScoreChangedEvent> PlayerScoreChangedCmd;
+        List<PlayerScoreChangedEvent> playerScoreChangedEventCache;
+
         CompositeDisposable disposables;
 
         public BrainBase() {
             Debug.Log("Creating brain.");
             disposables = new CompositeDisposable();
+
+            playerScore = new List<int>(maxPlayers);
+            playerScoreChangedEventCache = new List<PlayerScoreChangedEvent>(maxPlayers);
+
+            for (int i=0; i<maxPlayers; ++i) {
+                playerScoreChangedEventCache.Add(new PlayerScoreChangedEvent() { playerID = i });
+            }
 
             BrainInterface = CreateBrainInterface();
             //TODO: Add code to check if interface is ready/had errors
@@ -87,6 +104,80 @@ namespace PinballBrain {
             } else {
                 BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.BlinkLED(led, red, green, blue, interval, blinkAmount)).AddTo(this);
             }
+        }
+
+        public class LEDBlinkData {
+            public byte red;
+            public byte green;
+            public byte blue;
+            public short interval;
+            public byte amount;
+
+            public LEDBlinkData(byte red, byte green, byte blue, short interval, byte amount) {
+                this.red = red;
+                this.green = green;
+                this.blue = blue;
+                this.interval = interval;
+                this.amount = amount;
+            }
+        }
+
+        /// <summary>
+        /// Connects switch to led, using LEDBlinkData
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="ledBlinkData"></param>
+        protected void ConnectSwitchToLEDBlink(short switchID, short led, LEDBlinkData ledBlinkData) {
+            ConnectSwitchToLEDBlink(switchID, led, ledBlinkData.red, ledBlinkData.green, ledBlinkData.blue, ledBlinkData.interval, ledBlinkData.amount);
+        }
+
+        /// <summary>
+        /// Gets the score of a player
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <returns></returns>
+        protected int GetPlayerScore(int playerID) {
+            return playerScore[playerID];
+        }
+
+        /// <summary>
+        /// Increase the score of the current player
+        /// </summary>
+        /// <param name="score"></param>
+        protected void IncreaseCurrentPlayerScore(int score) {
+            IncreasePlayerScore(currentPlayer, score);
+        }
+
+        /// <summary>
+        /// Increase the score of a player
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="score"></param>
+        protected void IncreasePlayerScore(int player, int score) {
+            playerScore[player] += score;
+            playerScoreChangedEventCache[player].currentScore = playerScore[player];
+            PlayerScoreChangedCmd.Execute(playerScoreChangedEventCache[player]);
+        }
+
+        /// <summary>
+        /// Increases the current player score when switch is triggered
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="score"></param>
+        protected void ConnectSwitchToScoreIncrease(short switchID, int score) {
+            BrainInterface.OnSwitchActive(switchID).Subscribe(e => IncreaseCurrentPlayerScore(score)).AddTo(this);
+        }
+
+        protected void ConnectSwitchToScoreIncrease(short switchID, int score, int player) {
+            BrainInterface.OnSwitchActive(switchID).Subscribe(e => IncreasePlayerScore(player, score)).AddTo(this);
+        }
+
+        protected IObservable<PlayerScoreChangedEvent> OnPlayerScoreChanged(int playerID) {
+            return PlayerScoreChangedCmd.Where(v => v.playerID == playerID);
+        }
+
+        protected IObservable<PlayerScoreChangedEvent> OnCurrentPlayerScoreChanged() {
+            return PlayerScoreChangedCmd.Where(v => v.playerID == currentPlayer);
         }
     }
 }

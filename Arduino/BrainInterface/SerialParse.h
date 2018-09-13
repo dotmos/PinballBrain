@@ -1,7 +1,7 @@
 
 
 void Serial_Setup(){
-  Serial.begin(9600);
+  Serial.begin(57600);
 }
 
 
