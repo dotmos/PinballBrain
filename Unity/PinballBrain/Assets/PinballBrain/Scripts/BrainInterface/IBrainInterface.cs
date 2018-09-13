@@ -42,7 +42,7 @@ namespace PinballBrain {
         /// Activate an LED
         /// </summary>
         /// <param name="led"></param>
-        void ActivateLED(short led);
+        void ActivateLED(short led, byte red, byte green, byte blue);
 
         /// <summary>
         /// Deactivate an LED
@@ -54,14 +54,14 @@ namespace PinballBrain {
         /// Set an LED to blink mode until it is deactivated again. Interval is in ms.
         /// </summary>
         /// <param name="led"></param>
-        void BlinkLED(short led, short interval);
+        void BlinkLED(short led, byte red, byte green, byte blue, short interval);
 
         /// <summary>
         /// Set an LED to blink mode until it is deactivated again. LED will blink for blinkAmount times, then deactivate. Interval is in ms.
         /// </summary>
         /// <param name="led"></param>
         /// <param name="interval"></param>
-        void BlinkLED(short led, short interval, byte blinkAmount);
+        void BlinkLED(short led, byte red, byte green, byte blue, short interval, byte blinkAmount);
 
         /// <summary>
         /// Set the image of a display, loading an image from SDCard on the arduino side. Will stop animation on that display.

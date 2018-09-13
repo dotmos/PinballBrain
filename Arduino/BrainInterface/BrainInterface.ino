@@ -1,7 +1,13 @@
+//LEDs - WS2812
+#include <WS2812Serial.h>
+const int ledSerialPin = 1;
+
+
 //MCP23017 stuff
 #include <Wire.h>
 #include "Adafruit_MCP23017.h"
 
+//generic helpers
 int16_t read16(byte data[2]) {
   int16_t result;
   ((int8_t *)&result)[0] = data[0]; // LSB
@@ -18,11 +24,13 @@ int32_t read32(byte data[4]) {
   return result;
 }
 
+//definitions
 #define SWITCH_MAX_COUNT 16
 #define LED_MAX_COUNT 1024
 #define SOLENOID_MAX_COUNT 32
 #define SOLENOID_MAX_CONCURRENT 2 //max amount of solenoids being active at the same time
 
+//Message headers
 const byte LED_ACTIVATE = 10; // + led (2 bytes)
 const byte LED_DEACTIVATE = 11; // + led (2 bytes)
 const byte LED_BLINK = 12; // + led (2 bytes) + interval (2 bytes)
@@ -35,14 +43,17 @@ const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
 const byte SWITCH_ACTIVE = 30; // 2 bytes switch id
 const byte SWITCH_INACTIVE = 31; // 2 bytes switch id
 
+//Logic
 #include "Switches.h"
 #include "PlayfieldParts.h"
 #include "SerialParse.h"
 
 
+//Core
 unsigned long time;
 
 void setup() {
+
   // put your setup code here, to run once:
     pinMode(13, OUTPUT);  // use the p13 LED as debugging
 
@@ -52,8 +63,6 @@ void setup() {
     Serial_Setup();
     PlayfieldParts_Setup();
 }
-
-
 
 
 void loop() {

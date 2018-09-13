@@ -68,8 +68,8 @@ namespace PinballBrain {
         /// </summary>
         /// <param name="switchID"></param>
         /// <param name="led"></param>
-        protected void ConnectSwitchToLED(short switchID, short led) {
-            BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.ActivateLED(led)).AddTo(this);
+        protected void ConnectSwitchToLED(short switchID, short led, byte red, byte green, byte blue) {
+            BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.ActivateLED(led, red, green, blue)).AddTo(this);
             BrainInterface.OnSwitchInactive(switchID).Subscribe(e => BrainInterface.DeactivateLED(led)).AddTo(this);
         }
 
@@ -80,12 +80,12 @@ namespace PinballBrain {
         /// <param name="led"></param>
         /// <param name="interval"></param>
         /// <param name="blinkAmount"></param>
-        protected void ConnectSwitchToLEDBlink(short switchID, short led, short interval, byte blinkAmount = 0) {
+        protected void ConnectSwitchToLEDBlink(short switchID, short led, byte red, byte green, byte blue, short interval, byte blinkAmount = 0) {
             if (blinkAmount == 0) {
-                BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.BlinkLED(led, interval)).AddTo(this);
+                BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.BlinkLED(led, red, green , blue, interval)).AddTo(this);
                 BrainInterface.OnSwitchInactive(switchID).Subscribe(e => BrainInterface.DeactivateLED(led)).AddTo(this);
             } else {
-                BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.BlinkLED(led, interval, blinkAmount)).AddTo(this);
+                BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.BlinkLED(led, red, green, blue, interval, blinkAmount)).AddTo(this);
             }
         }
     }

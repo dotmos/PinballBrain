@@ -18,14 +18,14 @@ namespace PinballBrain {
         const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
         byte[] solenoidTriggerMsg = new byte[4];
 
-        const byte LED_ACTIVATE = 10; // + led (2 bytes)
-        byte[] ledActivateMsg = new byte[3];
+        const byte LED_ACTIVATE = 10; // + led (2 bytes) + color (3 bytes)
+        byte[] ledActivateMsg = new byte[6];
         const byte LED_DEACTIVATE = 11; // + led (2 bytes)
         byte[] ledDeactivateMsg = new byte[3];
-        const byte LED_BLINK = 12; // + led (2 bytes) + interval (2 bytes)
-        byte[] ledBlinkMsg = new byte[5];
-        const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + interval (2 bytes) + times (byte)
-        byte[] ledBlinkAmountMsg = new byte[6];
+        const byte LED_BLINK = 12; // + led (2 bytes) + color (3 bytes) +  interval (2 bytes)
+        byte[] ledBlinkMsg = new byte[8];
+        const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + color (3 bytes) + interval (2 bytes) + times (byte)
+        byte[] ledBlinkAmountMsg = new byte[9];
 
         const byte DISPLAY_SET_IMAGE = 20; // + display (byte) + image (2 byte)
         byte[] displaySetImageMsg = new byte[4];
@@ -158,12 +158,15 @@ namespace PinballBrain {
         /// Activate an LED
         /// </summary>
         /// <param name="led"></param>
-        public void ActivateLED(short led) {
+        public void ActivateLED(short led, byte red, byte green, byte blue) {
             byte[] ledByte = ByteHelper.ToBytes(led);
 
             ledActivateMsg[0] = LED_ACTIVATE;
             ledActivateMsg[1] = ledByte[0];
             ledActivateMsg[2] = ledByte[1];
+            ledActivateMsg[3] = red;
+            ledActivateMsg[4] = green;
+            ledActivateMsg[5] = blue;
 
             Write(ledActivateMsg);
         }
@@ -186,15 +189,18 @@ namespace PinballBrain {
         /// Set an LED to blink mode until it is deactivated again. Interval is in ms.
         /// </summary>
         /// <param name="led"></param>
-        public void BlinkLED(short led, short interval) {
+        public void BlinkLED(short led, byte red, byte green, byte blue, short interval) {
             byte[] ledByte = ByteHelper.ToBytes(led);
             byte[] intervalByte = ByteHelper.ToBytes(interval);
 
             ledBlinkMsg[0] = LED_BLINK;
             ledBlinkMsg[1] = ledByte[0];
             ledBlinkMsg[2] = ledByte[1];
-            ledBlinkMsg[3] = intervalByte[0];
-            ledBlinkMsg[4] = intervalByte[1];
+            ledBlinkMsg[3] = red;
+            ledBlinkMsg[4] = green;
+            ledBlinkMsg[5] = blue;
+            ledBlinkMsg[6] = intervalByte[0];
+            ledBlinkMsg[7] = intervalByte[1];
 
             Write(ledBlinkMsg);
         }
@@ -204,16 +210,19 @@ namespace PinballBrain {
         /// </summary>
         /// <param name="led"></param>
         /// <param name="interval"></param>
-        public void BlinkLED(short led, short interval, byte blinkAmount) {
+        public void BlinkLED(short led, byte red, byte green, byte blue, short interval, byte blinkAmount) {
             byte[] ledByte = ByteHelper.ToBytes(led);
             byte[] intervalByte = ByteHelper.ToBytes(interval);
 
             ledBlinkAmountMsg[0] = LED_BLINK_AMOUNT;
             ledBlinkAmountMsg[1] = ledByte[0];
             ledBlinkAmountMsg[2] = ledByte[1];
-            ledBlinkAmountMsg[3] = intervalByte[0];
-            ledBlinkAmountMsg[4] = intervalByte[1];
-            ledBlinkAmountMsg[5] = blinkAmount;
+            ledBlinkAmountMsg[3] = red;
+            ledBlinkAmountMsg[4] = green;
+            ledBlinkAmountMsg[5] = blue;
+            ledBlinkAmountMsg[6] = intervalByte[0];
+            ledBlinkAmountMsg[7] = intervalByte[1];
+            ledBlinkAmountMsg[8] = blinkAmount;
 
             Write(ledBlinkAmountMsg);
 
