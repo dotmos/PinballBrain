@@ -109,13 +109,13 @@ void _Solenoid_Deactivate(byte solenoid){
 
 //Mark a solenoid for activation
 void Solenoid_Activate(byte solenoid){
-  solenoid_state[solenoid] = SOLENOID_ACTIVATE;
+  solenoid_state[solenoid] = SOLENOID_STATE_ACTIVATE;
   solenoid_activeTime[solenoid] = 0;
 }
 
 //Mark a solenoid for deactivation
 void Solenoid_Deactivate(byte solenoid){
-  solenoid_state[solenoid] = SOLENOID_DEACTIVATE;
+  solenoid_state[solenoid] = SOLENOID_STATE_DEACTIVATE;
   solenoid_activeTime[solenoid] = 0;
 }
 

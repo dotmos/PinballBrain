@@ -67,5 +67,11 @@ void Serial_Update(int deltaTime){
       LED_SetColor(led, red, green, blue);
       LED_Blink(led, interval, Serial.read());
     } 
+    else if(header == DISPLAY_SET_IMAGE){
+      byte display = Serial_GetByte();
+      short image = Serial_GetShort();
+
+      Display_SetImage(display, image);
+    }
   }
 }
