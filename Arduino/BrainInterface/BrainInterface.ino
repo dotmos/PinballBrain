@@ -15,21 +15,6 @@ const int ledSerialPin = 1;
 //SD Card stuff
 #include <SdFat.h>
 
-// TFT display and SD card will share the hardware SPI interface.
-// Hardware SPI pins are specific to the Arduino board type and
-// cannot be remapped to alternate pins.  For Arduino Uno,
-// Duemilanove, etc., pin 11 = MOSI, pin 12 = MISO, pin 13 = SCK.
-#define TFT_CS  10  // Chip select line for TFT display
-#define TFT_RST  8  // Reset line for TFT (or see below...)
-#define TFT_DC   9  // Data/command line for TFT
-
-#define SD_CS    4  // Chip select line for SD card
-
-// Test with reduced SPI speed for breadboards.
-// Change spiSpeed to SPI_FULL_SPEED for better performance
-// Use SPI_QUARTER_SPEED for even slower SPI bus speed
-const uint8_t spiSpeed = SPI_HALF_SPEED;
-
 //generic helpers
 int16_t read16(byte data[2]) {
   int16_t result;
@@ -52,6 +37,8 @@ int32_t read32(byte data[4]) {
 #define LED_MAX_COUNT 128 //Maximum amount of LEDs. Change to your needs.
 #define SOLENOID_MAX_COUNT 32 //Maximum amount of solenoid. Change to your needs.
 #define SOLENOID_MAX_CONCURRENT 4 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
+#define DISPLAY_MAX_COUNT 1 //Maximum amount of displays. Change to your needs.
+int display_CS[DISPLAY_MAX_COUNT] = {10};
 
 //Message headers
 const byte LED_ACTIVATE = 10; // + led (2 bytes) + color (3 bytes)
@@ -74,7 +61,6 @@ const byte DISPLAY_SET_IMAGE = 20; //  + display (byte) + image (2 byte)
 #include "LEDs.h"
 #include "Solenoids.h"
 #include "Displays.h"
-#include "PlayfieldParts.h"
 #include "SerialParse.h"
 
 //Core
