@@ -33,8 +33,20 @@ void Serial_Update(int deltaTime){
   if (Serial.available() > 0) {
     byte header = Serial_GetMessageHeader();
 
-
-    if(header == LED_ACTIVATE){
+    if(header == SOLENOID_DEACTIVATE){
+      byte solenoid = Serial_GetByte();
+      Solenoid_Deactivate(solenoid);
+    }
+    else if(header == SOLENOID_ACTIVATE){
+      byte solenoid = Serial_GetByte();
+      Solenoid_Activate(solenoid);
+    }
+    else if(header == SOLENOID_TRIGGER){
+      byte solenoid = Serial_GetByte();
+      short ms = Serial_GetShort();
+      Solenoid_Trigger(solenoid, ms);
+    }
+    else if(header == LED_ACTIVATE){
       short led = Serial_GetLEDId();
       
       byte red = Serial_GetByte();
@@ -63,9 +75,10 @@ void Serial_Update(int deltaTime){
       byte green = Serial_GetByte();
       byte blue = Serial_GetByte();
       short interval = Serial_GetShort();
+      byte amount = Serial_GetByte();
 
       LED_SetColor(led, red, green, blue);
-      LED_Blink(led, interval, Serial.read());
+      LED_Blink(led, interval, amount);
     } 
     else if(header == DISPLAY_SET_IMAGE){
       byte display = Serial_GetByte();

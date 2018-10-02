@@ -59,9 +59,9 @@ const byte LED_DEACTIVATE = 11; // + led (2 bytes)
 const byte LED_BLINK = 12; // + led (2 bytes) + color (3 bytes) + interval (2 bytes)
 const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + color (3 bytes) + interval (2 bytes) + times (byte)
 
-//const byte SOLENOID_ACTIVATE = 1; // + solenoid (byte)
-//const byte SOLENOID_DEACTIVATE = 2; // + solenoid (byte)
-//const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
+const byte SOLENOID_ACTIVATE = 1; // + solenoid (byte)
+const byte SOLENOID_DEACTIVATE = 2; // + solenoid (byte)
+const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
 
 const byte SWITCH_ACTIVE = 30; // 2 bytes switch id
 const byte SWITCH_INACTIVE = 31; // 2 bytes switch id
@@ -71,7 +71,9 @@ const byte DISPLAY_SET_IMAGE = 20; //  + display (byte) + image (2 byte)
 //Logic
 #include "SDCard.h"
 #include "Switches.h"
-#include "Display.h"
+#include "LEDs.h"
+#include "Solenoids.h"
+#include "Displays.h"
 #include "PlayfieldParts.h"
 #include "SerialParse.h"
 
@@ -86,10 +88,11 @@ void setup() {
     //while (!Serial);
 
     SDCard_Setup();
-    Display_Setup();
     Switch_Setup();
     Serial_Setup();
-    PlayfieldParts_Setup();
+    LEDs_Setup();
+    Solenoids_Setup();
+    Display_Setup();
 
     Display_SetImage(0, 1);
 }
@@ -104,7 +107,7 @@ void loop() {
   //Receive data from unity
   Serial_Update(deltaTime);
 
-  PlayfieldParts_Update(deltaTime);
-
+  Solenoids_Update(deltaTime);
+  LEDs_Update(deltaTime);
   Display_Update(deltaTime);
 }
