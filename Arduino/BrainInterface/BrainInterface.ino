@@ -38,7 +38,7 @@ int32_t read32(byte data[4]) {
 #define SOLENOID_MAX_COUNT 32 //Maximum amount of solenoid. Change to your needs.
 #define SOLENOID_MAX_CONCURRENT 4 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
 #define DISPLAY_MAX_COUNT 1 //Maximum amount of displays. Change to your needs.
-int display_CS[DISPLAY_MAX_COUNT] = {10};
+int display_CS[DISPLAY_MAX_COUNT] = {10}; //Chip select pins for displays
 
 //Message headers
 const byte LED_ACTIVATE = 10; // + led (2 bytes) + color (3 bytes)
@@ -50,10 +50,11 @@ const byte SOLENOID_ACTIVATE = 1; // + solenoid (byte)
 const byte SOLENOID_DEACTIVATE = 2; // + solenoid (byte)
 const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
 
-const byte SWITCH_ACTIVE = 30; // 2 bytes switch id
-const byte SWITCH_INACTIVE = 31; // 2 bytes switch id
+const byte SWITCH_ACTIVE = 30; // + switch id (2 bytes)
+const byte SWITCH_INACTIVE = 31; // + switch id (2 bytes)
 
 const byte DISPLAY_SET_IMAGE = 20; //  + display (byte) + image (2 byte)
+const byte DISPLAY_CLEAR_IMAGE = 21; // + display (byte)
 
 //Logic
 #include "SDCard.h"
@@ -79,8 +80,6 @@ void setup() {
     LEDs_Setup();
     Solenoids_Setup();
     Display_Setup();
-
-    Display_SetImage(0, 1);
 }
 
 
