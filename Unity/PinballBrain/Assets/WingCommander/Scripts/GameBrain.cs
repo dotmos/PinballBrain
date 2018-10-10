@@ -128,19 +128,20 @@ public class GameBrain : BrainBase {
         ConnectSwitchToLEDBlink(3, 3, LED_TARGETBANK_LOWERLEFT_DATA);
 
         BrainInterface.OnSwitchActive(0).Subscribe(e => {
-            BrainInterface.SetTFTImage(0, e);
+            //BrainInterface.SetTFTImage(0, e);
+            BrainInterface.PlayTFTAnimation(0, 4);
         }).AddTo(this);
         BrainInterface.OnSwitchActive(1).Subscribe(e => {
             //BrainInterface.SetTFTImage(0, e);
-            BrainInterface.LoopTFTAnimation(0, 0);
+            BrainInterface.PlayTFTAnimation(0, 5);
         }).AddTo(this);
         BrainInterface.OnSwitchActive(2).Subscribe(e => {
             //BrainInterface.SetTFTImage(0, e);
-            BrainInterface.LoopTFTAnimation(0, 1);
+            BrainInterface.LoopTFTAnimation(0, 6);
         }).AddTo(this);
         BrainInterface.OnSwitchActive(3).Subscribe(e => {
             //BrainInterface.SetTFTImage(0, e);
-            BrainInterface.LoopTFTAnimation(0, 2);
+            BrainInterface.LoopTFTAnimation(0, 7);
         }).AddTo(this);
 
         

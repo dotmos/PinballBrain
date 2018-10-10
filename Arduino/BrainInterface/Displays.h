@@ -36,6 +36,8 @@ struct Display_Data{
   int animationFilePosition;
   //Whether or not the animation should be looped
   byte loopAnimation;
+  //imageID of the current frame
+  short frameImageID;
 };
 
 Display_Data display_data[DISPLAY_MAX_COUNT];
@@ -60,6 +62,7 @@ void Display_Setup(){
     display_data[i].frametime = DISPLAY_FRAMELIMIT_DEFAULT;
     display_data[i].animationID = -1;
     display_data[i].animationFilePosition = 0;
+    display_data[i].frameImageID = -1;
   }
 
   
@@ -172,6 +175,7 @@ void _Display_DrawImage(byte displayID, char *filename, uint8_t x, uint8_t y) {
 //Stop the current animation
 void Display_StopAnimation(byte display){
   display_data[display].animationID = -1;
+  display_data[display].frameImageID = -1;
   display_data[display].animationFilePosition = 0;
   display_data[display].frametime = DISPLAY_FRAMELIMIT_DEFAULT;
 }
@@ -266,7 +270,12 @@ void _Display_UpdateAnimationData(byte displayID){
 
       if(display_data[displayID].animationType == 0){
         //simple animation
-        //TODO: implement
+        display_data[displayID].frametime = Display_GetShort(&animationFile);
+        display_data[displayID].frameImageID = 0;
+        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(display_data[displayID].frameImageID)  + display_fileEnding;
+        display_str.toCharArray(display_data[displayID].imageFilename, 100);
+        display_data[displayID].drawImage = true;
+        display_data[displayID].animationFilePosition = animationFile.position();
         
       } else if(display_data[displayID].animationType == 1){
         //complex animation
@@ -281,9 +290,9 @@ void _Display_UpdateAnimationData(byte displayID){
         #endif
 
         //Get image path
-        short _imageID = Display_GetShort(&animationFile);
+        display_data[displayID].frameImageID =  Display_GetShort(&animationFile);
         display_data[displayID].animationFilePosition += 2;
-        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(_imageID)  + display_fileEnding;
+        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(display_data[displayID].frameImageID)  + display_fileEnding;
         display_str.toCharArray(display_data[displayID].imageFilename, 100);
 
         #ifdef DISPLAY_SERIAL_DEBUG
@@ -304,14 +313,36 @@ void _Display_UpdateAnimationData(byte displayID){
       }
       
     } else {
-      //continue with animation
-      if(display_data[displayID].animationType == 1){
+      //continue with simple animation
+      if(display_data[displayID].animationType == 0){
+        display_data[displayID].frameImageID++;
+        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(display_data[displayID].frameImageID)  + display_fileEnding;
+        display_str.toCharArray(display_data[displayID].imageFilename, 100);
+        //Check if next frame exists
+        if(sd.exists(display_data[displayID].imageFilename)){
+          display_data[displayID].drawImage = true;  
+        } else {
+          //If next frame does not exist but animation should loop, go back to first frame
+          if(display_data[displayID].loopAnimation == 1){
+            display_data[displayID].frameImageID = 0;
+            display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(display_data[displayID].frameImageID)  + display_fileEnding;
+            display_str.toCharArray(display_data[displayID].imageFilename, 100);
+            display_data[displayID].drawImage = true;
+          }
+          //If animation should not loop, stop animation
+          else {
+            Display_StopAnimation(displayID);
+          }
+        }
+      }
+      //continue with complex animation
+      else if(display_data[displayID].animationType == 1){
         //display_data[displayID].imageID = Display_GetShort(animationFile);
         
         //Get image path
-        short _imageID = Display_GetShort(&animationFile);
+        display_data[displayID].frameImageID =  Display_GetShort(&animationFile);
         display_data[displayID].animationFilePosition += 2;
-        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(_imageID) + display_fileEnding;
+        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(display_data[displayID].frameImageID) + display_fileEnding;
         display_str.toCharArray(display_data[displayID].imageFilename, 100);
 
         #ifdef DISPLAY_SERIAL_DEBUG
@@ -329,22 +360,23 @@ void _Display_UpdateAnimationData(byte displayID){
         #endif
 
         display_data[displayID].drawImage = true;
+
+        //Complex animation loop check and file position set
+        if(animationFile.available()){
+          display_data[displayID].animationFilePosition = animationFile.position();
+        } else {
+          display_data[displayID].animationFilePosition = 0;
+          //Check if animation should be looped
+          if(display_data[displayID].loopAnimation == 0){
+            Display_StopAnimation(displayID);
+          }
+        }
       }
     }
 
     #ifdef DISPLAY_SERIAL_DEBUG
     Serial.println("-----");
-    #endif
-    
-    if(animationFile.available()){
-      display_data[displayID].animationFilePosition = animationFile.position();
-    } else {
-      display_data[displayID].animationFilePosition = 0;
-      //Check if animation should be looped
-      if(display_data[displayID].loopAnimation == 0){
-        Display_StopAnimation(displayID);
-      }
-    }
+    #endif  
     
     animationFile.close();
   }
