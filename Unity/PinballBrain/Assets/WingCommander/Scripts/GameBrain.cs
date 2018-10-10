@@ -131,13 +131,16 @@ public class GameBrain : BrainBase {
             BrainInterface.SetTFTImage(0, e);
         }).AddTo(this);
         BrainInterface.OnSwitchActive(1).Subscribe(e => {
-            BrainInterface.SetTFTImage(0, e);
+            //BrainInterface.SetTFTImage(0, e);
+            BrainInterface.LoopTFTAnimation(0, 0);
         }).AddTo(this);
         BrainInterface.OnSwitchActive(2).Subscribe(e => {
-            BrainInterface.SetTFTImage(0, e);
+            //BrainInterface.SetTFTImage(0, e);
+            BrainInterface.LoopTFTAnimation(0, 1);
         }).AddTo(this);
         BrainInterface.OnSwitchActive(3).Subscribe(e => {
-            BrainInterface.SetTFTImage(0, e);
+            //BrainInterface.SetTFTImage(0, e);
+            BrainInterface.LoopTFTAnimation(0, 2);
         }).AddTo(this);
 
         

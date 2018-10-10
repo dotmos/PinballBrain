@@ -41,20 +41,23 @@ int32_t read32(byte data[4]) {
 int display_CS[DISPLAY_MAX_COUNT] = {10}; //Chip select pins for displays
 
 //Message headers
-const byte LED_ACTIVATE = 10; // + led (2 bytes) + color (3 bytes)
-const byte LED_DEACTIVATE = 11; // + led (2 bytes)
-const byte LED_BLINK = 12; // + led (2 bytes) + color (3 bytes) + interval (2 bytes)
-const byte LED_BLINK_AMOUNT = 13; // + led (2 bytes) + color (3 bytes) + interval (2 bytes) + times (byte)
+const byte LED_ACTIVATE = 10; // + led (short: 2 bytes) + color (3 bytes (red,green,blue))
+const byte LED_DEACTIVATE = 11; // + led (short: 2 bytes)
+const byte LED_BLINK = 12; // + led (short: 2 bytes) + color (3 bytes (red, green, blue)) + interval (short: 2 bytes)
+const byte LED_BLINK_AMOUNT = 13; // + led (short: 2 bytes) + color (3 bytes (red, green, blue)) + interval (short: 2 bytes) + times (byte)
 
 const byte SOLENOID_ACTIVATE = 1; // + solenoid (byte)
 const byte SOLENOID_DEACTIVATE = 2; // + solenoid (byte)
-const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (2 bytes)
+const byte SOLENOID_TRIGGER = 3; // + solenoid (byte) + time (short: 2 bytes)
 
-const byte SWITCH_ACTIVE = 30; // + switch id (2 bytes)
-const byte SWITCH_INACTIVE = 31; // + switch id (2 bytes)
+const byte SWITCH_ACTIVE = 30; // + switch id (short: 2 bytess)
+const byte SWITCH_INACTIVE = 31; // + switch id (short: 2 bytes)
 
-const byte DISPLAY_SET_IMAGE = 20; //  + display (byte) + image (2 byte)
+const byte DISPLAY_SET_IMAGE = 20; //  + display (byte) + image (short: 2 bytes)
 const byte DISPLAY_CLEAR_IMAGE = 21; // + display (byte)
+const byte DISPLAY_ANIMATION_LOOP = 22; // + display (byte) + animation (short: 2 bytes)
+const byte DISPLAY_ANIMATION_STOP = 23; // + display (byte)
+const byte DISPLAY_ANIMATION_PLAY_ONCE = 24; // + display (byte) + animation (short: 2 bytes)
 
 //Logic
 #include "SDCard.h"

@@ -16,7 +16,7 @@ Teensy_ST7735 displays[DISPLAY_MAX_COUNT] = {
 };
 
 //char helper
-//char display_imageFilename[100];
+String display_fileEnding = ".565";
 char display_animationFilename[100];
 String display_str;
 
@@ -34,8 +34,10 @@ struct Display_Data{
   byte animationType;
   //If an animation is playing: Position of the animation in animation file
   int animationFilePosition;
+  //Whether or not the animation should be looped
+  byte loopAnimation;
 };
-//lcd/anim/0/anim
+
 Display_Data display_data[DISPLAY_MAX_COUNT];
 
 //------------------------------------------------------------
@@ -67,7 +69,7 @@ void Display_Setup(){
   // Use this initializer (uncomment) if you're using a 1.44" TFT
   //display1.initR(INITR_144GREENTAB);
 
-  //_Display_DrawImage(0, "/lcd/ml.lcd", 0, 0);
+  //_Display_DrawImage(0, "/display/ml" + display_fileEnding, 0, 0);
 }
 
 //Read a short from a file
@@ -170,6 +172,7 @@ void _Display_DrawImage(byte displayID, char *filename, uint8_t x, uint8_t y) {
 //Stop the current animation
 void Display_StopAnimation(byte display){
   display_data[display].animationID = -1;
+  display_data[display].animationFilePosition = 0;
   display_data[display].frametime = DISPLAY_FRAMELIMIT_DEFAULT;
 }
 
@@ -177,7 +180,7 @@ void Display_StopAnimation(byte display){
 void Display_SetImage(byte display, short image){
   Display_StopAnimation(display);
   
-  display_str = "/lcd/priv/" + String(image) + ".bin";
+  display_str = "/display/" + String(image) + display_fileEnding;
   display_str.toCharArray(display_data[display].imageFilename, 100);
   display_data[display].drawImage = true;
 }
@@ -195,21 +198,32 @@ void Display_ClearImage(byte display){
 }
 
 void Display_LoopAnimation(byte display, short animation){
+  Display_StopAnimation(display);
+  display_data[display].animationFilePosition = 0;
   display_data[display].animationID = animation;
+  display_data[display].loopAnimation = 1;
+}
+
+void Display_PlayAnimationOnce(byte display, short animation){
+  Display_StopAnimation(display);
+  display_data[display].animationFilePosition = 0;
+  display_data[display].animationID = animation;
+  display_data[display].loopAnimation = 0;
 }
 
 
-
+/*
 void Display_randomMercTalk()
 {
   int r = random(10);
   if(r <= 3)
-    _Display_DrawImage(0, "/lcd/ml57_791.lcd", 57, 79);
+    _Display_DrawImage(0, "/display/ml57_791" + display_fileEnding, 57, 79);
   else if(r <= 6)
-    _Display_DrawImage(0, "/lcd/ml57_792.lcd", 57, 79);
+    _Display_DrawImage(0, "/display/ml57_792" + display_fileEnding, 57, 79);
   else
-    _Display_DrawImage(0, "/lcd/ml57_793.lcd", 57, 79);
+    _Display_DrawImage(0, "/display/ml57_793" + display_fileEnding, 57, 79);
 }
+*/
 
 //Update the display animation data
 void _Display_UpdateAnimationData(byte displayID){
@@ -217,7 +231,7 @@ void _Display_UpdateAnimationData(byte displayID){
     File animationFile;
 
     //Get path to animation file
-    display_str = "/lcd/anim/" + String(display_data[displayID].animationID) + "/anim.bad";
+    display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/anim.bad";
     display_str.toCharArray(display_animationFilename, 100);
     
     // Open requested file on SD card
@@ -269,7 +283,7 @@ void _Display_UpdateAnimationData(byte displayID){
         //Get image path
         short _imageID = Display_GetShort(&animationFile);
         display_data[displayID].animationFilePosition += 2;
-        display_str = "/lcd/anim/" + String(display_data[displayID].animationID) + "/" + String(_imageID) + ".bin";
+        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(_imageID)  + display_fileEnding;
         display_str.toCharArray(display_data[displayID].imageFilename, 100);
 
         #ifdef DISPLAY_SERIAL_DEBUG
@@ -297,7 +311,7 @@ void _Display_UpdateAnimationData(byte displayID){
         //Get image path
         short _imageID = Display_GetShort(&animationFile);
         display_data[displayID].animationFilePosition += 2;
-        display_str = "/lcd/anim/" + String(display_data[displayID].animationID) + "/" + String(_imageID) + ".bin";
+        display_str = "/display/anim/" + String(display_data[displayID].animationID) + "/" + String(_imageID) + display_fileEnding;
         display_str.toCharArray(display_data[displayID].imageFilename, 100);
 
         #ifdef DISPLAY_SERIAL_DEBUG
@@ -326,6 +340,10 @@ void _Display_UpdateAnimationData(byte displayID){
       display_data[displayID].animationFilePosition = animationFile.position();
     } else {
       display_data[displayID].animationFilePosition = 0;
+      //Check if animation should be looped
+      if(display_data[displayID].loopAnimation == 0){
+        Display_StopAnimation(displayID);
+      }
     }
     
     animationFile.close();

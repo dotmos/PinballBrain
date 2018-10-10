@@ -34,6 +34,7 @@ void Serial_Update(int deltaTime){
     byte header = Serial_GetMessageHeader();
 
     // Solenoids -----------------------------------------------
+    
     if(header == SOLENOID_DEACTIVATE){
       byte solenoid = Serial_GetByte();
       Solenoid_Deactivate(solenoid);
@@ -49,6 +50,7 @@ void Serial_Update(int deltaTime){
     }
 
     // LEDs ------------------------------------------------------
+    
     else if(header == LED_ACTIVATE){
       short led = Serial_GetLEDId();
       
@@ -85,6 +87,7 @@ void Serial_Update(int deltaTime){
     } 
 
     // Displays ---------------------------------------------------
+    
     else if(header == DISPLAY_SET_IMAGE){
       byte display = Serial_GetByte();
       short image = Serial_GetShort();
@@ -94,6 +97,20 @@ void Serial_Update(int deltaTime){
     else if(header == DISPLAY_CLEAR_IMAGE){
       byte display = Serial_GetByte();
       Display_ClearImage(display);
+    }
+    else if(header == DISPLAY_ANIMATION_LOOP){
+      byte display = Serial_GetByte();
+      short animationID = Serial_GetShort();
+      Display_LoopAnimation(display, animationID);
+    } 
+    else if(header == DISPLAY_ANIMATION_STOP){
+      byte display = Serial_GetByte();
+      Display_StopAnimation(display);
+    }
+    else if(header == DISPLAY_ANIMATION_PLAY_ONCE){
+      byte display = Serial_GetByte();
+      short animationID = Serial_GetShort();
+      Display_PlayAnimationOnce(display, animationID);
     }
   }
 }
