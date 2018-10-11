@@ -209,38 +209,36 @@ public class GameBrain : BrainBase {
             SetLED(LED_TARGETBANK_LOWERLEFT_2, LEDAction.Blink, LED_TARGETBANK_LOWERLEFT_ALLHIT_DATA);
             SetLED(LED_TARGETBANK_LOWERLEFT_3, LEDAction.Blink, LED_TARGETBANK_LOWERLEFT_ALLHIT_DATA);
 
+            //TODO: Add points
+
             //TODO: Play audio
         }).AddTo(this);
         //On bank reset
         lowerLeftDropTargetbank.OnReset().Subscribe(e => {
-            DeactivateLED(LED_TARGETBANK_LOWERLEFT_1);
-            DeactivateLED(LED_TARGETBANK_LOWERLEFT_2);
-            DeactivateLED(LED_TARGETBANK_LOWERLEFT_3);
             //Reset droptargets
             ActivateSolenoid(SOLENOID_DROPTARGET_LOWERLEFT, 50);  
         }).AddTo(this);
 
         
         //Setup lower right targetbank -----------------------------------------------------------------------------------------------------------------------
-        ConnectSwitchToLED(SWITCH_TARGETBANK_LOWERRIGHT_1, LED_TARGETBANK_LOWERRIGHT_1, LED_TARGETBANK_LOWERRIGHT_DATA, LEDAction.Activate);
-        ConnectSwitchToLED(SWITCH_TARGETBANK_LOWERRIGHT_2, LED_TARGETBANK_LOWERRIGHT_2, LED_TARGETBANK_LOWERRIGHT_DATA, LEDAction.Activate);
         lowerRightTargetBank = new TargetBank(this,
             new List<short> {
                 SWITCH_TARGETBANK_LOWERRIGHT_1,
                 SWITCH_TARGETBANK_LOWERRIGHT_2
             },
             true, 100);
+        //Activate leds
+        lowerRightTargetBank.OnUniqueTargetHit(SWITCH_TARGETBANK_LOWERRIGHT_1).Subscribe(e => SetLED(LED_TARGETBANK_LOWERRIGHT_1, LEDAction.Activate, LED_TARGETBANK_LOWERRIGHT_DATA)).AddTo(this);
+        lowerRightTargetBank.OnUniqueTargetHit(SWITCH_TARGETBANK_LOWERRIGHT_2).Subscribe(e => SetLED(LED_TARGETBANK_LOWERRIGHT_2, LEDAction.Activate, LED_TARGETBANK_LOWERRIGHT_DATA)).AddTo(this);
         lowerRightTargetBank.OnReset().Subscribe(e => {
+            //Reset leds
             DeactivateLED(LED_TARGETBANK_LOWERRIGHT_1);
             DeactivateLED(LED_TARGETBANK_LOWERRIGHT_2);
 
             //TODO: Play animation + audio
         }).AddTo(this);
 
-        //Setup upper right targetbank
-        ConnectSwitchToLED(SWITCH_TARGETBANK_UPPERRIGHT_1, LED_TARGETBANK_UPPERRIGHT_1, LED_TARGETBANK_UPPERRIGHT_DATA, LEDAction.Activate);
-        ConnectSwitchToLED(SWITCH_TARGETBANK_UPPERRIGHT_2, LED_TARGETBANK_UPPERRIGHT_2, LED_TARGETBANK_UPPERRIGHT_DATA, LEDAction.Activate);
-        //Setup upper right drop targetbank
+        //Setup upper right targetbank -------------------------------------------------------------------------------------------------------------------------
         upperRightDropTargetbank = new TargetBank(this,
             new List<short>() {
                 SWITCH_TARGETBANK_UPPERRIGHT_1,
@@ -250,6 +248,9 @@ public class GameBrain : BrainBase {
                 SWITCH_DROPTARGETBANK_UPPERRIGHT_3
             },
             true, 1000);
+        //Activate leds
+        upperRightDropTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_UPPERRIGHT_1).Subscribe(e => SetLED(LED_TARGETBANK_UPPERRIGHT_1, LEDAction.Activate, LED_TARGETBANK_UPPERRIGHT_DATA)).AddTo(this);
+        upperRightDropTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_UPPERRIGHT_2).Subscribe(e => SetLED(LED_TARGETBANK_UPPERRIGHT_2, LEDAction.Activate, LED_TARGETBANK_UPPERRIGHT_DATA)).AddTo(this);
         upperRightDropTargetbank.OnReset().Subscribe(e => {
             //Reset droptargets
             ActivateSolenoid(SOLENOID_DROPTARGET_UPPERRIGHT, 50);
@@ -260,16 +261,18 @@ public class GameBrain : BrainBase {
             //TODO: Play animation + audio
         }).AddTo(this);
 
-        //Setup upper center targetbank
-        ConnectSwitchToLEDBlink(SWITCH_TARGETBANK_UPPERCENTER_1, LED_TARGETBANK_UPPERCENTER_1, LED_TARGETBANK_UPPERCENTER_DATA);
-        ConnectSwitchToLEDBlink(SWITCH_TARGETBANK_UPPERCENTER_2, LED_TARGETBANK_UPPERCENTER_2, LED_TARGETBANK_UPPERCENTER_DATA);
+        //Setup upper center targetbank --------------------------------------------------------------------------------------------------------------------------
         upperCenterTargetbank = new TargetBank(this,
             new List<short>() {
                 SWITCH_TARGETBANK_UPPERCENTER_1,
                 SWITCH_TARGETBANK_UPPERCENTER_2
             },
             true, 100);
+        //Activate LEDS
+        upperCenterTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_UPPERCENTER_1).Subscribe(e => SetLED(LED_TARGETBANK_UPPERCENTER_1, LEDAction.Activate, LED_TARGETBANK_UPPERCENTER_DATA)).AddTo(this);
+        upperCenterTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_UPPERCENTER_2).Subscribe(e => SetLED(LED_TARGETBANK_UPPERCENTER_2, LEDAction.Activate, LED_TARGETBANK_UPPERCENTER_DATA)).AddTo(this);
         upperCenterTargetbank.OnReset().Subscribe(e => {
+            //Deactivate LEDS
             DeactivateLED(LED_TARGETBANK_UPPERCENTER_1);
             DeactivateLED(LED_TARGETBANK_UPPERCENTER_2);
         }).AddTo(this);
