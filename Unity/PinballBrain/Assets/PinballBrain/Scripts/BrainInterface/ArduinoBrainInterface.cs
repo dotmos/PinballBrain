@@ -95,7 +95,11 @@ namespace PinballBrain {
         }
 
         void Write(byte[] bytes) {
-            this.serialPort.Write(bytes);
+            //Make a copy of the bytes to write
+            byte[] _bytesToWrite = new byte[bytes.Length];
+            bytes.CopyTo(_bytesToWrite, 0);
+            //Write bytes to serialport
+            this.serialPort.Write(_bytesToWrite);
         }
 
         /// <summary>

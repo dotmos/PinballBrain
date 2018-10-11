@@ -6,11 +6,6 @@ namespace PinballBrain {
 
         void ActivateSolenoid(byte solenoid);
         void ActivateSolenoid(byte solenoid, short ms);
-        /// <summary>
-        /// Deactivate the led
-        /// </summary>
-        /// <param name="led"></param>
-        void DeactivateLED(short led);
 
         IDisposable ConnectSwitchToAction(short switchID, Action<short> action);
 
@@ -28,6 +23,12 @@ namespace PinballBrain {
         /// <param name="solenoid"></param>
         /// <param name="ms"></param>
         IDisposable ConnectSwitchToSolenoid(short switchID, byte solenoid, short time);
+
+        /// <summary>
+        /// Deactivate the led
+        /// </summary>
+        /// <param name="led"></param>
+        void DeactivateLED(short led);
 
         /// <summary>
         /// If switch is active, led will be activated. If switch is inactive, led will be deactivated
@@ -60,6 +61,26 @@ namespace PinballBrain {
         IDisposable ConnectSwitchToLED(short switchID, short led, LEDData ledData, LEDAction ledAction);
 
         /// <summary>
+        /// Set an led to active, inactive or blink. If set to blink and blinkAmount is 0, led will blink forever. Otherwise it will blink "blinkAmount" of times.
+        /// </summary>
+        /// <param name="led"></param>
+        /// <param name="ledData"></param>
+        /// <param name="ledAction"></param>
+        void SetLED(short led, LEDAction ledAction, LEDData ledData = null);
+
+        /// <summary>
+        /// Set an led to active, inactive or blink. If set to blink and blinkAmount is 0, led will blink forever. Otherwise it will blink "blinkAmount" of times.
+        /// </summary>
+        /// <param name="led"></param>
+        /// <param name="ledAction"></param>
+        /// <param name="red"></param>
+        /// <param name="green"></param>
+        /// <param name="blue"></param>
+        /// <param name="blinkInterval"></param>
+        /// <param name="blinkAmount"></param>
+        void SetLED(short led, LEDAction ledAction, byte red = 0, byte green = 0, byte blue = 0, short blinkInterval = 100, byte blinkAmount = 0);
+
+        /// <summary>
         /// If switch is active, led will blink for blinkAmount of times. If blinkAmount is 0, led will blink until switch is inactive.
         /// </summary>
         /// <param name="switchID"></param>
@@ -90,15 +111,15 @@ namespace PinballBrain {
         public byte red;
         public byte green;
         public byte blue;
-        public short interval;
-        public byte amount;
+        public short blinkInterval;
+        public byte blinkAmount;
 
         public LEDData(byte red, byte green, byte blue, short interval, byte amount) {
             this.red = red;
             this.green = green;
             this.blue = blue;
-            this.interval = interval;
-            this.amount = amount;
+            this.blinkInterval = interval;
+            this.blinkAmount = amount;
         }
     }
 

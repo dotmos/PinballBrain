@@ -74,7 +74,7 @@ namespace PinballBrain {
         /// </summary>
         /// <param name="led"></param>
         public void DeactivateLED(short led) {
-            BrainInterface.DeactivateLED(led);
+            SetLED(led, LEDAction.Deactivate, null);
         }
 
         /// <summary>
@@ -146,6 +146,7 @@ namespace PinballBrain {
         /// <param name="blinkAmount"></param>
         /// <returns></returns>
         public IDisposable ConnectSwitchToLED(short switchID, short led, byte red, byte green, byte blue, LEDAction ledAction = LEDAction.Activate, short blinkInterval = 100, byte blinkAmount = 0) {
+            /*
             if (ledAction == LEDAction.Activate) {
                 return BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.ActivateLED(led, red, green, blue)).AddTo(this);
             } else if (ledAction == LEDAction.Blink) {
@@ -158,6 +159,8 @@ namespace PinballBrain {
             } else {
                 return BrainInterface.OnSwitchActive(switchID).Subscribe(e => BrainInterface.DeactivateLED(led)).AddTo(this);
             }
+            */
+            return BrainInterface.OnSwitchActive(switchID).Subscribe(e => SetLED(led, ledAction, red, green, blue, blinkInterval, blinkAmount));
         }
 
         /// <summary>
@@ -169,9 +172,43 @@ namespace PinballBrain {
         /// <param name="ledAction"></param>
         /// <returns></returns>
         public IDisposable ConnectSwitchToLED(short switchID, short led, LEDData ledData, LEDAction ledAction) {
-            return ConnectSwitchToLED(switchID, led, ledData.red, ledData.green, ledData.blue, ledAction, ledData.interval, ledData.amount);
+            return ConnectSwitchToLED(switchID, led, ledData.red, ledData.green, ledData.blue, ledAction, ledData.blinkInterval, ledData.blinkAmount);
         }
 
+        /// <summary>
+        /// Set an led to active, inactive or blink. If set to blink and blinkAmount is 0, led will blink forever. Otherwise it will blink "blinkAmount" of times.
+        /// </summary>
+        /// <param name="led"></param>
+        /// <param name="ledAction"></param>
+        /// <param name="ledData"></param>
+        public void SetLED(short led, LEDAction ledAction, LEDData ledData = null) {
+            if (ledData == null) SetLED(led, ledAction, 0, 0, 0);
+            else SetLED(led, ledAction, ledData.red, ledData.green, ledData.blue, ledData.blinkInterval, ledData.blinkAmount);
+        }
+
+        /// <summary>
+        /// Set an led to active, inactive or blink. If set to blink and blinkAmount is 0, led will blink forever. Otherwise it will blink "blinkAmount" of times.
+        /// </summary>
+        /// <param name="led"></param>
+        /// <param name="ledAction"></param>
+        /// <param name="red"></param>
+        /// <param name="green"></param>
+        /// <param name="blue"></param>
+        /// <param name="blinkInterval"></param>
+        /// <param name="blinkAmount"></param>
+        public void SetLED(short led, LEDAction ledAction, byte red = 0, byte green = 0, byte blue = 0, short blinkInterval = 100, byte blinkAmount = 0) {
+            if (ledAction == LEDAction.Activate) {
+                BrainInterface.ActivateLED(led, red, green, blue);
+            } else if (ledAction == LEDAction.Deactivate) {
+                BrainInterface.DeactivateLED(led);
+            } else if (ledAction == LEDAction.Blink) {
+                if (blinkAmount == 0) {
+                    BrainInterface.BlinkLED(led, red, green, blue, blinkInterval);
+                } else {
+                    BrainInterface.BlinkLED(led, red, green, blue, blinkInterval, blinkAmount);
+                }
+            }
+        }
 
 
         /// <summary>
@@ -198,7 +235,7 @@ namespace PinballBrain {
         /// <param name="switchID"></param>
         /// <param name="ledBlinkData"></param>
         public IDisposable ConnectSwitchToLEDBlink(short switchID, short led, LEDData ledData) {
-            return ConnectSwitchToLEDBlink(switchID, led, ledData.red, ledData.green, ledData.blue, ledData.interval, ledData.amount);
+            return ConnectSwitchToLEDBlink(switchID, led, ledData.red, ledData.green, ledData.blue, ledData.blinkInterval, ledData.blinkAmount);
         }
 
         /// <summary>
