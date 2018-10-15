@@ -153,9 +153,10 @@ public class GameBrain : BrainBase {
         }).AddTo(this);
         BrainInterface.OnSwitchActive(3).Subscribe(e => {
             //BrainInterface.SetTFTImage(0, e);
-            BrainInterface.LoopTFTAnimation(0, 7);
+            BrainInterface.LoopTFTAnimation(0, 3);
         }).AddTo(this);
         */
+        
 
         
         //Setup flippers
@@ -196,8 +197,11 @@ public class GameBrain : BrainBase {
             true, 500);
         //Activate bank LEDs
         lowerLeftDropTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_LOWERLEFT_1).Subscribe(e => SetLED(LED_TARGETBANK_LOWERLEFT_1, LEDAction.Activate, LED_TARGETBANK_LOWERLEFT_DATA)).AddTo(this);
+        lowerLeftDropTargetbank.OnTargetHit(SWITCH_TARGETBANK_LOWERLEFT_1).Subscribe(e => IncreaseCurrentPlayerScore(250)).AddTo(this);
         lowerLeftDropTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_LOWERLEFT_2).Subscribe(e => SetLED(LED_TARGETBANK_LOWERLEFT_2, LEDAction.Activate, LED_TARGETBANK_LOWERLEFT_DATA)).AddTo(this);
+        lowerLeftDropTargetbank.OnTargetHit(SWITCH_TARGETBANK_LOWERLEFT_2).Subscribe(e => IncreaseCurrentPlayerScore(250)).AddTo(this);
         lowerLeftDropTargetbank.OnUniqueTargetHit(SWITCH_TARGETBANK_LOWERLEFT_3).Subscribe(e => SetLED(LED_TARGETBANK_LOWERLEFT_3, LEDAction.Activate, LED_TARGETBANK_LOWERLEFT_DATA)).AddTo(this);
+        lowerLeftDropTargetbank.OnTargetHit(SWITCH_TARGETBANK_LOWERLEFT_3).Subscribe(e => IncreaseCurrentPlayerScore(250)).AddTo(this);
         //On all bank targets hit
         lowerLeftDropTargetbank.OnAllTargetsHit().DelayFrame(1).Subscribe(e => {
             //Play explosion animation on TFT near targetbank
@@ -210,6 +214,7 @@ public class GameBrain : BrainBase {
             SetLED(LED_TARGETBANK_LOWERLEFT_3, LEDAction.Blink, LED_TARGETBANK_LOWERLEFT_ALLHIT_DATA);
 
             //TODO: Add points
+            IncreaseCurrentPlayerScore(2500);
 
             //TODO: Play audio
         }).AddTo(this);

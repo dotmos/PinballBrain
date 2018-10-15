@@ -8,7 +8,7 @@ const int ledSerialPin = 1;
 #include "Adafruit_MCP23017.h"
 
 //Display stuff
-#include <Adafruit_GFX.h>    // Core graphics library
+//#include <Adafruit_GFX.h>    // Core graphics library
 #include <Teensy_ST7735.h> // Hardware-specific library
 #include <SPI.h>
 
