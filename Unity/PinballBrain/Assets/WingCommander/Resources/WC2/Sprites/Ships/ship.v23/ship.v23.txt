@@ -1,0 +1,282 @@
+SHIP File
+=========
+
+
+Ship External View Image Block   0
+----------------------------------
+
+Image   0: Size:  99, 93; Origin:  49, 46
+
+
+Ship External View Image Block   1
+----------------------------------
+
+Image   0: Size: 114, 77; Origin:  56, 38
+
+
+Ship External View Image Block   2
+----------------------------------
+
+Image   0: Size: 107, 85; Origin:  53, 42
+
+
+Ship External View Image Block   3
+----------------------------------
+
+Image   0: Size: 113, 80; Origin:  56, 40
+
+
+Ship External View Image Block   4
+----------------------------------
+
+Image   0: Size: 117, 68; Origin:  58, 34
+
+
+Ship External View Image Block   5
+----------------------------------
+
+Image   0: Size: 116, 74; Origin:  57, 37
+
+
+Ship External View Image Block   6
+----------------------------------
+
+Image   0: Size: 116, 71; Origin:  57, 35
+
+
+Ship External View Image Block   7
+----------------------------------
+
+Image   0: Size: 120, 57; Origin:  59, 28
+
+
+Ship External View Image Block   8
+----------------------------------
+
+Image   0: Size: 123, 57; Origin:  61, 28
+
+
+Ship External View Image Block   9
+----------------------------------
+
+Image   0: Size: 120, 57; Origin:  59, 28
+
+
+Ship External View Image Block  10
+----------------------------------
+
+Image   0: Size: 124, 59; Origin:  61, 29
+
+
+Ship External View Image Block  11
+----------------------------------
+
+Image   0: Size: 125, 58; Origin:  62, 29
+
+
+Ship External View Image Block  12
+----------------------------------
+
+Image   0: Size: 123, 58; Origin:  61, 29
+
+
+Ship External View Image Block  13
+----------------------------------
+
+Image   0: Size: 126, 80; Origin:  62, 40
+
+
+Ship External View Image Block  14
+----------------------------------
+
+Image   0: Size: 119, 91; Origin:  59, 45
+
+
+Ship External View Image Block  15
+----------------------------------
+
+Image   0: Size: 126, 85; Origin:  62, 42
+
+
+Ship External View Image Block  16
+----------------------------------
+
+Image   0: Size: 127, 92; Origin:  63, 46
+
+
+Ship External View Image Block  17
+----------------------------------
+
+
+
+Ship External View Image Block  18
+----------------------------------
+
+
+
+Ship External View Image Block  19
+----------------------------------
+
+
+
+Ship External View Image Block  20
+----------------------------------
+
+
+
+Ship External View Image Block  21
+----------------------------------
+
+
+
+Ship External View Image Block  22
+----------------------------------
+
+
+
+Ship External View Image Block  23
+----------------------------------
+
+
+
+Ship External View Image Block  24
+----------------------------------
+
+
+
+Ship External View Image Block  25
+----------------------------------
+
+
+
+Ship External View Image Block  26
+----------------------------------
+
+
+
+Ship External View Image Block  27
+----------------------------------
+
+
+
+Ship External View Image Block  28
+----------------------------------
+
+
+
+Ship External View Image Block  29
+----------------------------------
+
+
+
+Ship External View Image Block  30
+----------------------------------
+
+
+
+Ship External View Image Block  31
+----------------------------------
+
+
+
+Ship External View Image Block  32
+----------------------------------
+
+
+
+Ship External View Image Block  33
+----------------------------------
+
+
+
+Ship External View Image Block  34
+----------------------------------
+
+
+
+Ship External View Image Block  35
+----------------------------------
+
+
+
+Ship External View Image Block  36
+----------------------------------
+
+
+
+Ship External View Image Block  37
+----------------------------------
+
+Image   0: Size:  43, 37; Origin:  22, 18
+Image   1: Size:  43, 37; Origin:  22, 18
+Image   2: Size:  56, 41; Origin:  27, 20
+
+
+Ship Block
+----------
+
+Name: Human starbase     ; Class: 14; Index: 23; Type: 59; Radius: 1000; Mass: 20000; Max Scale: 2421; Power Plant:  2; Fuel:      0; Damage: 1200; Explosive Force: 30000; Max Speed:   10; Cruise Speed:  10; Max Acceleration:  256; Max Yaw/Pitch/Roll:  1/ 1/ 1; Angular Inertia: 10000
+Shields: Fore: 1000; Aft: 1000; Armor: Front: 900; Rear: 850; Left: 850; Right: 850
+    Weapon  0: Type:  12; XYZ:     0,    0,    0; Selected: True
+    Weapon  1: Type:  12; XYZ:     0,    0,    0; Selected: True
+    Weapon  2: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  3: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  4: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  5: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  6: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  7: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  8: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  9: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 10: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 11: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 12: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 13: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 14: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 15: Type:   0; XYZ:     0,    0,    0; Selected: True
+
+
+Debris Image Block
+------------------
+
+
+
+Engine Position Block
+---------------------
+
+Image  0:
+Image  1:
+Image  2:
+Image  3:
+Image  4:
+Image  5:
+Image  6:
+Image  7:
+Image  8:
+Image  9:
+Image 10:
+Image 11:
+Image 12:
+Image 13:
+Image 14:
+Image 15:
+Image 16:
+Image 17:
+Image 18:
+Image 19:
+Image 20:
+Image 21:
+Image 22:
+Image 23:
+Image 24:
+Image 25:
+Image 26:
+Image 27:
+Image 28:
+Image 29:
+Image 30:
+Image 31:
+Image 32:
+Image 33:
+Image 34:
+Image 35:
+Image 36:

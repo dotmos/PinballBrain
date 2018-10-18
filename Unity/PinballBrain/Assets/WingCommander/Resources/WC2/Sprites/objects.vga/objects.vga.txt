@@ -1,0 +1,311 @@
+VGA File
+========
+
+
+Image Block   0
+---------------
+
+Image   0: Size:  27,  8; Origin:   5,  2
+Image   1: Size:  29,  8; Origin:   5,  2
+Image   2: Size:  25,  8; Origin:   5,  2
+Image   3: Size:  24,  8; Origin:   5,  2
+Image   4: Size:  26,  8; Origin:   5,  2
+Image   5: Size:  22,  8; Origin:   5,  2
+Image   6: Size:  18,  8; Origin:   5,  2
+Image   7: Size:  19,  8; Origin:   5,  2
+Image   8: Size:  17,  8; Origin:   5,  2
+Image   9: Size:  12, 10; Origin:   5,  4
+Image  10: Size:  12, 10; Origin:   5,  4
+Image  11: Size:  12, 10; Origin:   5,  4
+Image  12: Size:  24,  8; Origin:   5,  2
+Image  13: Size:  21,  8; Origin:   5,  2
+Image  14: Size:  22,  8; Origin:   5,  2
+Image  15: Size:  19,  8; Origin:   5,  2
+Image  16: Size:  15,  8; Origin:   5,  2
+Image  17: Size:  13,  8; Origin:   5,  2
+Image  18: Size:  11, 10; Origin:   5,  4
+Image  19: Size:  10, 10; Origin:   5,  4
+
+
+Image Block   1
+---------------
+
+Image   0: Size:  13,  5; Origin:   6,  2
+Image   1: Size:  16,  7; Origin:   7,  3
+Image   2: Size:  21, 10; Origin:   8,  4
+Image   3: Size:  28, 15; Origin:  11,  7
+Image   4: Size:  33, 18; Origin:  13,  8
+Image   5: Size:  39, 19; Origin:  16,  8
+Image   6: Size:   1,  1; Origin:   0,  0
+
+
+Image Block   2
+---------------
+
+Image   0: Size:  63, 44; Origin:  40, 10
+Image   1: Size:  77, 60; Origin:  47, 15
+Image   2: Size:  95, 75; Origin:  56, 21
+Image   3: Size: 100, 82; Origin:  61, 26
+Image   4: Size: 107, 85; Origin:  66, 28
+Image   5: Size: 109, 88; Origin:  67, 28
+Image   6: Size: 116, 87; Origin:  73, 29
+Image   7: Size: 121, 91; Origin:  74, 34
+Image   8: Size: 124, 90; Origin:  76, 33
+Image   9: Size: 127, 93; Origin:  79, 35
+Image  10: Size: 131, 92; Origin:  82, 34
+Image  11: Size: 133, 94; Origin:  82, 35
+
+
+Image Block   3
+---------------
+
+Image   0: Size:  45, 43; Origin:  20, 21
+Image   1: Size:  62, 52; Origin:  27, 23
+Image   2: Size:  75, 58; Origin:  32, 26
+Image   3: Size:  97, 69; Origin:  45, 30
+Image   4: Size: 109, 75; Origin:  52, 31
+Image   5: Size: 116, 83; Origin:  56, 33
+Image   6: Size: 121, 85; Origin:  60, 34
+Image   7: Size: 134, 86; Origin:  69, 33
+Image   8: Size: 144, 86; Origin:  80, 34
+Image   9: Size: 141, 86; Origin:  77, 34
+Image  10: Size: 125, 94; Origin:  72, 39
+Image  11: Size: 125, 93; Origin:  78, 39
+Image  12: Size: 117,100; Origin:  69, 44
+Image  13: Size:  97, 76; Origin:  57, 29
+Image  14: Size:  97, 82; Origin:  64, 30
+Image  15: Size:  94, 88; Origin:  61, 30
+Image  16: Size: 105, 58; Origin:  71, 18
+
+
+Image Block   4
+---------------
+
+Image   0: Size:  13, 10; Origin:   6,  3
+Image   1: Size:  13,  9; Origin:   6,  4
+Image   2: Size:  12, 11; Origin:   6,  6
+Image   3: Size:  13, 10; Origin:   6,  7
+Image   4: Size:  13,  9; Origin:   6,  4
+Image   5: Size:  12, 11; Origin:   6,  4
+Image   6: Size:  11, 11; Origin:   5,  5
+Image   7: Size:   8,  9; Origin:   4,  3
+Image   8: Size:  10,  8; Origin:   5,  2
+Image   9: Size:  11, 11; Origin:   6,  4
+Image  10: Size:  10,  8; Origin:   5,  2
+Image  11: Size:   8, 10; Origin:   3,  4
+Image  12: Size:  17,  8; Origin:   9,  3
+Image  13: Size:  17, 12; Origin:   9,  4
+Image  14: Size:  18, 15; Origin:   9,  5
+Image  15: Size:  19, 17; Origin:  10,  6
+Image  16: Size:  20, 15; Origin:  10,  5
+Image  17: Size:  20, 12; Origin:  10,  4
+Image  18: Size:  20,  8; Origin:  10,  3
+Image  19: Size:  20,  1; Origin:   9,  0
+Image  20: Size:  18,  1; Origin:  10,  0
+Image  21: Size:   9,  9; Origin:   4,  4
+Image  22: Size:   9,  7; Origin:   4,  3
+Image  23: Size:   9,  3; Origin:   4,  1
+Image  24: Size:   9,  3; Origin:   4,  1
+Image  25: Size:   9,  7; Origin:   4,  3
+Image  26: Size:   9,  9; Origin:   4,  4
+Image  27: Size:  18,  4; Origin:   9,  2
+Image  28: Size:  20, 12; Origin:   9,  5
+Image  29: Size:  22, 21; Origin:  11, 10
+Image  30: Size:  12, 20; Origin:   6, 10
+Image  31: Size:   4, 18; Origin:   1,  9
+Image  32: Size:  15, 14; Origin:   7,  7
+
+
+Image Block   5
+---------------
+
+Image   0: Size:  38, 23; Origin:  19, 14
+Image   1: Size:  33, 26; Origin:  18, 14
+Image   2: Size:  28, 26; Origin:  14, 14
+Image   3: Size:  20, 27; Origin:   8, 15
+Image   4: Size:  13, 32; Origin:   4, 17
+Image   5: Size:  20, 37; Origin:  10, 19
+Image   6: Size:  30, 38; Origin:  14, 18
+Image   7: Size:  34, 35; Origin:  14, 15
+Image   8: Size:  32, 30; Origin:  12, 11
+Image   9: Size:  26, 24; Origin:   9,  8
+Image  10: Size:  29, 18; Origin:   9,  6
+Image  11: Size:  37, 18; Origin:  13,  7
+Image  12: Size:  39, 19; Origin:  14,  8
+
+
+Image Block   6
+---------------
+
+Image   0: Size:  17, 17; Origin:   8,  8
+
+
+Image Block   7
+---------------
+
+Image   0: Size:  13, 12; Origin:   6,  6
+
+
+Image Block   8
+---------------
+
+Image   0: Size:   8,  8; Origin:   3,  4
+
+
+Image Block   9
+---------------
+
+Image   0: Size:   8,  8; Origin:   3,  3
+Image   1: Size:  11, 11; Origin:   5,  4
+Image   2: Size:  11,  9; Origin:   6,  3
+Image   3: Size:  15, 11; Origin:   8,  4
+Image   4: Size:  13, 12; Origin:   5,  4
+Image   5: Size:  16, 15; Origin:   6,  5
+
+
+Image Block  10
+---------------
+
+Image   0: Size:   5,  3; Origin:   1,  1
+Image   1: Size:   6,  6; Origin:   2,  2
+Image   2: Size:   7,  8; Origin:   3,  4
+Image   3: Size:  11, 13; Origin:   4,  7
+
+
+Image Block  11
+---------------
+
+Image   0: Size:   8,  8; Origin:   6,  3
+Image   1: Size:   7,  6; Origin:   5,  2
+Image   2: Size:  10,  9; Origin:   5,  2
+Image   3: Size:  14, 10; Origin:   6,  3
+
+
+Image Block  12
+---------------
+
+Image   0: Size:  15, 12; Origin:   7,  5
+Image   1: Size:  15, 14; Origin:   7,  7
+Image   2: Size:  14, 14; Origin:   6,  7
+Image   3: Size:  14, 12; Origin:   7,  7
+
+
+Image Block  13
+---------------
+
+Image   0: Size:   9,  9; Origin:   4,  5
+Image   1: Size:   9,  9; Origin:   4,  5
+Image   2: Size:   9,  9; Origin:   4,  5
+Image   3: Size:   9,  9; Origin:   4,  5
+Image   4: Size:   9,  9; Origin:   4,  5
+Image   5: Size:   9,  9; Origin:   4,  5
+
+
+Image Block  14
+---------------
+
+Image   0: Size: 136,136; Origin:  67, 67
+Image   1: Size:  68, 67; Origin:  34, 33
+Image   2: Size:   1,  1; Origin:   0,  0
+
+
+Image Block  15
+---------------
+
+Image   0: Size:  45, 26; Origin:  26, 13
+Image   1: Size:  44, 36; Origin:  26, 18
+Image   2: Size:  44, 40; Origin:  26, 20
+Image   3: Size:  44, 37; Origin:  26, 18
+Image   4: Size:  45, 27; Origin:  26, 13
+Image   5: Size:  44, 21; Origin:  25, 10
+Image   6: Size:  44, 30; Origin:  25, 15
+Image   7: Size:  44, 39; Origin:  25, 19
+Image   8: Size:  44, 40; Origin:  25, 19
+Image   9: Size:  44, 32; Origin:  25, 15
+Image  10: Size:  44, 23; Origin:  25, 11
+
+
+Image Block  16
+---------------
+
+Image   0: Size:  52, 43; Origin:  19, 16
+Image   1: Size:  53, 40; Origin:  20, 15
+Image   2: Size:  52, 37; Origin:  18, 16
+Image   3: Size:  54, 36; Origin:  18, 15
+Image   4: Size:  57, 39; Origin:  19, 15
+Image   5: Size:  60, 41; Origin:  22, 15
+Image   6: Size:  59, 42; Origin:  23, 16
+Image   7: Size:  53, 41; Origin:  20, 15
+Image   8: Size:  48, 42; Origin:  18, 15
+Image   9: Size:  42, 44; Origin:  17, 16
+Image  10: Size:  45, 47; Origin:  18, 18
+Image  11: Size:  50, 50; Origin:  18, 19
+Image  12: Size:  51, 47; Origin:  18, 17
+
+
+Image Block  17
+---------------
+
+Image   0: Size:  60, 38; Origin:  22, 12
+Image   1: Size:  61, 44; Origin:  21, 16
+Image   2: Size:  67, 48; Origin:  26, 18
+Image   3: Size:  70, 48; Origin:  27, 17
+Image   4: Size:  67, 47; Origin:  25, 15
+Image   5: Size:  62, 49; Origin:  22, 17
+Image   6: Size:  57, 50; Origin:  19, 19
+Image   7: Size:  55, 52; Origin:  19, 21
+Image   8: Size:  51, 56; Origin:  19, 21
+Image   9: Size:  55, 57; Origin:  20, 21
+Image  10: Size:  60, 52; Origin:  22, 19
+Image  11: Size:  60, 46; Origin:  23, 16
+Image  12: Size:  59, 42; Origin:  22, 15
+
+
+Image Block  18
+---------------
+
+Image   0: Size:  38, 31; Origin:   0, 30
+
+
+Image Block  19
+---------------
+
+Image   0: Size:  34, 30; Origin:  23, 12
+Image   1: Size:  34, 27; Origin:  23, 11
+Image   2: Size:  34, 23; Origin:  23,  9
+Image   3: Size:  34, 26; Origin:  23, 11
+Image   4: Size:  34, 27; Origin:  23, 11
+Image   5: Size:  34, 31; Origin:  23, 13
+Image   6: Size:  34, 28; Origin:  23, 11
+Image   7: Size:  34, 26; Origin:  23, 10
+Image   8: Size:  34, 22; Origin:  23,  8
+Image   9: Size:  34, 28; Origin:  23, 11
+Image  10: Size:  34, 30; Origin:  23, 12
+
+
+Image Block  20
+---------------
+
+Image   0: Size:  32, 21; Origin:  16, 10
+Image   1: Size:  32, 17; Origin:  16,  8
+Image   2: Size:  32, 22; Origin:  16, 11
+Image   3: Size:  32, 27; Origin:  16, 13
+Image   4: Size:  33, 27; Origin:  17, 12
+Image   5: Size:  33, 23; Origin:  17, 10
+Image   6: Size:  33, 18; Origin:  17,  8
+Image   7: Size:  32, 19; Origin:  16,  9
+Image   8: Size:  33, 25; Origin:  17, 12
+Image   9: Size:  32, 27; Origin:  16, 13
+Image  10: Size:  32, 25; Origin:  16, 12
+
+
+Image Block  21
+---------------
+
+Image   0: Size: 103, 83; Origin:  50, 42
+
+
+Image Block  22
+---------------
+
+Image   0: Size: 103, 83; Origin:  50, 42

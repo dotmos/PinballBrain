@@ -1,0 +1,129 @@
+VGA File
+========
+
+
+Image Block   0
+---------------
+
+Image   0: Size:   4,  4; Origin:   1,  1
+Image   1: Size:   2,  4; Origin:   0,  1
+Image   2: Size:   3,  3; Origin:   0,  0
+Image   3: Size:   4,  2; Origin:   1,  0
+Image   4: Size:   3,  3; Origin:   1,  1
+Image   5: Size:   2,  3; Origin:   1,  1
+Image   6: Size:   3,  3; Origin:   1,  1
+Image   7: Size:   3,  2; Origin:   2,  1
+Image   8: Size:   2,  2; Origin:   1,  1
+Image   9: Size:   1,  2; Origin:   0,  1
+Image  10: Size:   3,  3; Origin:   1,  1
+Image  11: Size:   2,  1; Origin:   1,  0
+Image  12: Size:   1,  1; Origin:   0,  0
+Image  13: Size:   1,  1; Origin:   0,  0
+Image  14: Size:   1,  1; Origin:   0,  0
+Image  15: Size:   1,  1; Origin:   0,  0
+Image  16: Size:   4,  4; Origin:   2,  1
+Image  17: Size:   3,  4; Origin:   1,  1
+Image  18: Size:   3,  4; Origin:   2,  1
+Image  19: Size:   5,  5; Origin:   2,  1
+Image  20: Size:   3,  3; Origin:   1,  1
+Image  21: Size:   2,  3; Origin:   1,  1
+Image  22: Size:   2,  3; Origin:   0,  1
+Image  23: Size:   3,  3; Origin:   1,  1
+Image  24: Size:   2,  2; Origin:   0,  1
+Image  25: Size:   2,  2; Origin:   0,  1
+Image  26: Size:   2,  2; Origin:   0,  1
+Image  27: Size:   2,  2; Origin:   0,  1
+Image  28: Size:   1,  1; Origin:   0,  0
+Image  29: Size:   1,  1; Origin:   0,  0
+Image  30: Size:   1,  1; Origin:   0,  0
+Image  31: Size:   1,  1; Origin:   0,  0
+Image  32: Size:   7,  7; Origin:   3,  3
+Image  33: Size:   5,  5; Origin:   2,  2
+Image  34: Size:   3,  3; Origin:   1,  1
+Image  35: Size:   3,  3; Origin:   1,  1
+Image  36: Size:   3,  3; Origin:   1,  1
+Image  37: Size:   5,  5; Origin:   2,  2
+
+
+Image Block   1
+---------------
+
+Image   0: Size:  47, 50; Origin:  24, 25
+
+
+Image Block   2
+---------------
+
+Image   0: Size:  49, 39; Origin:  24, 19
+
+
+Image Block   3
+---------------
+
+Image   0: Size:  73, 30; Origin:  36, 14
+
+
+Image Block   4
+---------------
+
+Image   0: Size:  52, 43; Origin:  25, 22
+Image   1: Size:   8, 13; Origin:   7, 12
+Image   2: Size:   8, 12; Origin:   7,  0
+
+
+Image Block   5
+---------------
+
+Image   0: Size:  47, 37; Origin:  23, 17
+Image   1: Size:   8, 13; Origin:   7, 12
+Image   2: Size:   8, 12; Origin:   7,  0
+
+
+Image Block   6
+---------------
+
+Image   0: Size:  46, 46; Origin:  23, 23
+
+
+Image Block   7
+---------------
+
+Image   0: Size:  31, 31; Origin:  15, 16
+
+
+Image Block   8
+---------------
+
+Image   0: Size:  41, 39; Origin:  20, 19
+
+
+Image Block   9
+---------------
+
+Image   0: Size:  49, 39; Origin:  24, 19
+Image   1: Size:   1,  1; Origin:   0,  0
+
+
+Image Block  10
+---------------
+
+Image   0: Size:  53, 43; Origin:  26, 21
+Image   1: Size:   1,  1; Origin:   0,  0
+
+
+Image Block  11
+---------------
+
+Image   0: Size:  38, 36; Origin:  17, 16
+
+
+Image Block  12
+---------------
+
+Image   0: Size:  27, 27; Origin:  13, 13
+
+
+Image Block  13
+---------------
+
+Image   0: Size:  27, 27; Origin:  13, 13

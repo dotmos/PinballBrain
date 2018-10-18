@@ -1,0 +1,293 @@
+SHIP File
+=========
+
+
+Ship External View Image Block   0
+----------------------------------
+
+Image   0: Size: 122,108; Origin:  62, 55
+
+
+Ship External View Image Block   1
+----------------------------------
+
+Image   0: Size: 126, 95; Origin:  63, 45
+
+
+Ship External View Image Block   2
+----------------------------------
+
+Image   0: Size: 123, 94; Origin:  61, 45
+
+
+Ship External View Image Block   3
+----------------------------------
+
+Image   0: Size: 132, 89; Origin:  64, 43
+
+
+Ship External View Image Block   4
+----------------------------------
+
+Image   0: Size: 126, 62; Origin:  63, 29
+
+
+Ship External View Image Block   5
+----------------------------------
+
+Image   0: Size: 125, 60; Origin:  62, 28
+
+
+Ship External View Image Block   6
+----------------------------------
+
+Image   0: Size: 131, 59; Origin:  66, 27
+
+
+Ship External View Image Block   7
+----------------------------------
+
+Image   0: Size: 127, 54; Origin:  62, 28
+
+
+Ship External View Image Block   8
+----------------------------------
+
+Image   0: Size: 125, 54; Origin:  62, 28
+
+
+Ship External View Image Block   9
+----------------------------------
+
+Image   0: Size: 131, 54; Origin:  64, 28
+
+
+Ship External View Image Block  10
+----------------------------------
+
+Image   0: Size: 126, 59; Origin:  63, 33
+
+
+Ship External View Image Block  11
+----------------------------------
+
+Image   0: Size: 125, 61; Origin:  62, 34
+
+
+Ship External View Image Block  12
+----------------------------------
+
+Image   0: Size: 131, 60; Origin:  66, 34
+
+
+Ship External View Image Block  13
+----------------------------------
+
+Image   0: Size: 125, 93; Origin:  62, 50
+
+
+Ship External View Image Block  14
+----------------------------------
+
+Image   0: Size: 123, 95; Origin:  61, 50
+
+
+Ship External View Image Block  15
+----------------------------------
+
+Image   0: Size: 132, 89; Origin:  64, 47
+
+
+Ship External View Image Block  16
+----------------------------------
+
+Image   0: Size: 122,108; Origin:  62, 55
+
+
+Ship External View Image Block  17
+----------------------------------
+
+
+
+Ship External View Image Block  18
+----------------------------------
+
+
+
+Ship External View Image Block  19
+----------------------------------
+
+
+
+Ship External View Image Block  20
+----------------------------------
+
+
+
+Ship External View Image Block  21
+----------------------------------
+
+
+
+Ship External View Image Block  22
+----------------------------------
+
+
+
+Ship External View Image Block  23
+----------------------------------
+
+
+
+Ship External View Image Block  24
+----------------------------------
+
+
+
+Ship External View Image Block  25
+----------------------------------
+
+
+
+Ship External View Image Block  26
+----------------------------------
+
+
+
+Ship External View Image Block  27
+----------------------------------
+
+
+
+Ship External View Image Block  28
+----------------------------------
+
+
+
+Ship External View Image Block  29
+----------------------------------
+
+
+
+Ship External View Image Block  30
+----------------------------------
+
+
+
+Ship External View Image Block  31
+----------------------------------
+
+
+
+Ship External View Image Block  32
+----------------------------------
+
+
+
+Ship External View Image Block  33
+----------------------------------
+
+
+
+Ship External View Image Block  34
+----------------------------------
+
+
+
+Ship External View Image Block  35
+----------------------------------
+
+
+
+Ship External View Image Block  36
+----------------------------------
+
+
+
+Ship External View Image Block  37
+----------------------------------
+
+Image   0: Size:  47, 41; Origin:  22, 20
+Image   1: Size:  47, 41; Origin:  22, 20
+Image   2: Size:  55, 41; Origin:  27, 20
+
+
+Ship Block
+----------
+
+Name: H supply depot     ; Class: 14; Index: 24; Type: 59; Radius: 400; Mass: 18000; Max Scale: 2304; Power Plant:  2; Fuel:      0; Damage:  100; Explosive Force: 25000; Max Speed:    0; Cruise Speed:   0; Max Acceleration:    0; Max Yaw/Pitch/Roll:  0/ 0/ 0; Angular Inertia: 15000
+Shields: Fore: 300; Aft: 300; Armor: Front: 180; Rear: 180; Left: 160; Right: 160
+    Weapon  0: Type:  12; XYZ:     0,    0,    0; Selected: True
+    Weapon  1: Type:  12; XYZ:     0,    0,    0; Selected: True
+    Weapon  2: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  3: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  4: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  5: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  6: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  7: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  8: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  9: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 10: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 11: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 12: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 13: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 14: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 15: Type:   0; XYZ:     0,    0,    0; Selected: True
+
+
+Debris Image Block
+------------------
+
+Image   0: Size:  95, 50; Origin:  56, 19
+Image   1: Size:  91, 83; Origin:  51, 38
+Image   2: Size:  76, 96; Origin:  40, 45
+Image   3: Size:  60, 81; Origin:  32, 39
+Image   4: Size:  49, 41; Origin:  27, 18
+Image   5: Size:  53, 41; Origin:  33, 15
+Image   6: Size:  52, 78; Origin:  31, 32
+Image   7: Size:  49, 96; Origin:  28, 43
+Image   8: Size:  59, 95; Origin:  33, 47
+Image   9: Size:  75, 72; Origin:  44, 36
+Image  10: Size:  90, 35; Origin:  54, 14
+
+
+Engine Position Block
+---------------------
+
+Image  0:
+Image  1:
+Image  2:
+Image  3:
+Image  4:
+Image  5:
+Image  6:
+Image  7:
+Image  8:
+Image  9:
+Image 10:
+Image 11:
+Image 12:
+Image 13:
+Image 14:
+Image 15:
+Image 16:
+Image 17:
+Image 18:
+Image 19:
+Image 20:
+Image 21:
+Image 22:
+Image 23:
+Image 24:
+Image 25:
+Image 26:
+Image 27:
+Image 28:
+Image 29:
+Image 30:
+Image 31:
+Image 32:
+Image 33:
+Image 34:
+Image 35:
+Image 36:

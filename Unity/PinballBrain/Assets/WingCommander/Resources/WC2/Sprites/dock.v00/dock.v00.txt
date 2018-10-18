@@ -1,0 +1,14 @@
+VGA File
+========
+
+
+Image Block   0
+---------------
+
+Image   0: Size: 191,104; Origin:  95, 52
+
+
+Image Block   1
+---------------
+
+Image   0: Size: 105, 25; Origin:  52, 12

@@ -1,0 +1,98 @@
+COMM SPEECH File
+================
+
+
+Speech Block   0
+----------------
+
+Length:  9046
+
+
+Speech Block   1
+----------------
+
+Length: 12346
+
+
+Speech Block   2
+----------------
+
+Length: 13246
+
+
+Speech Block   3
+----------------
+
+Length: 10846
+
+
+Speech Block   4
+----------------
+
+Length: 18346
+
+
+Speech Block   5
+----------------
+
+Length: 14146
+
+
+Speech Block   6
+----------------
+
+Length: 18946
+
+
+Speech Block   7
+----------------
+
+Length: 12646
+
+
+Speech Block   8
+----------------
+
+Length:     0
+
+
+Speech Block   9
+----------------
+
+Length:  8746
+
+
+Speech Block  10
+----------------
+
+Length: 15646
+
+
+Speech Block  11
+----------------
+
+Length: 14446
+
+
+Speech Block  12
+----------------
+
+Length:  8146
+
+
+Speech Block  13
+----------------
+
+Length: 15046
+
+
+Speech Block  14
+----------------
+
+Length: 14446
+
+
+Speech Block  15
+----------------
+
+Length: 10546

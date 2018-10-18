@@ -1,0 +1,52 @@
+VGA File
+========
+
+
+Image Block   0
+---------------
+
+Image   0: Size: 269,128; Origin:   0,127
+Image   1: Size: 268,128; Origin:   0,127
+Image   2: Size: 270,128; Origin:   0,127
+Image   3: Size: 270,128; Origin:   0,127
+Image   4: Size: 270,128; Origin:   0,127
+Image   5: Size: 270,128; Origin:   0,127
+Image   6: Size: 272,128; Origin:   0,127
+Image   7: Size: 271,128; Origin:   0,127
+
+
+Image Block   1
+---------------
+
+Image   0: Size: 271,128; Origin:   0,127
+Image   1: Size: 272,128; Origin:   0,127
+Image   2: Size: 269,128; Origin:   0,127
+Image   3: Size: 269,128; Origin:   0,127
+Image   4: Size: 269,128; Origin:   0,127
+Image   5: Size: 268,128; Origin:   0,127
+Image   6: Size: 267,128; Origin:   0,127
+Image   7: Size: 266,128; Origin:   0,127
+
+
+Image Block   2
+---------------
+
+Image   0: Size: 267,128; Origin:   0,127
+Image   1: Size: 265,128; Origin:   0,127
+Image   2: Size: 263,128; Origin:   0,127
+Image   3: Size: 259,128; Origin:   0,127
+Image   4: Size: 256,128; Origin:   0,127
+Image   5: Size: 287,128; Origin:   0,127
+Image   6: Size: 279,128; Origin:   0,127
+
+
+Image Block   3
+---------------
+
+Image   0: Size: 271,128; Origin:   0,127
+Image   1: Size: 269,128; Origin:   0,127
+Image   2: Size: 261,128; Origin:   0,127
+Image   3: Size: 256,128; Origin:   0,127
+Image   4: Size: 251,128; Origin:   0,127
+Image   5: Size: 245,128; Origin:   0,127
+Image   6: Size: 247,128; Origin:   0,127

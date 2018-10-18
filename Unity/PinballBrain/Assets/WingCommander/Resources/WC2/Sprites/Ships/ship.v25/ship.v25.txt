@@ -1,0 +1,302 @@
+SHIP File
+=========
+
+
+Ship External View Image Block   0
+----------------------------------
+
+Image   0: Size: 159, 50; Origin:  79, 25
+
+
+Ship External View Image Block   1
+----------------------------------
+
+Image   0: Size:  62,115; Origin:  30, 57
+
+
+Ship External View Image Block   2
+----------------------------------
+
+Image   0: Size:  83,111; Origin:  41, 55
+
+
+Ship External View Image Block   3
+----------------------------------
+
+Image   0: Size: 133, 85; Origin:  66, 42
+
+
+Ship External View Image Block   4
+----------------------------------
+
+Image   0: Size: 159, 61; Origin:  79, 30
+
+
+Ship External View Image Block   5
+----------------------------------
+
+Image   0: Size: 134, 85; Origin:  66, 42
+
+
+Ship External View Image Block   6
+----------------------------------
+
+Image   0: Size:  83,109; Origin:  41, 54
+
+
+Ship External View Image Block   7
+----------------------------------
+
+Image   0: Size:  62,115; Origin:  30, 57
+
+
+Ship External View Image Block   8
+----------------------------------
+
+Image   0: Size:  61, 85; Origin:  30, 42
+
+
+Ship External View Image Block   9
+----------------------------------
+
+Image   0: Size:  84, 82; Origin:  41, 41
+
+
+Ship External View Image Block  10
+----------------------------------
+
+Image   0: Size: 133, 73; Origin:  66, 36
+
+
+Ship External View Image Block  11
+----------------------------------
+
+Image   0: Size: 159, 61; Origin:  79, 30
+
+
+Ship External View Image Block  12
+----------------------------------
+
+Image   0: Size: 133, 72; Origin:  66, 36
+
+
+Ship External View Image Block  13
+----------------------------------
+
+Image   0: Size:  85, 80; Origin:  42, 40
+
+
+Ship External View Image Block  14
+----------------------------------
+
+Image   0: Size:  61, 84; Origin:  30, 42
+
+
+Ship External View Image Block  15
+----------------------------------
+
+Image   0: Size:  60, 58; Origin:  29, 29
+
+
+Ship External View Image Block  16
+----------------------------------
+
+Image   0: Size:  85, 58; Origin:  42, 29
+
+
+Ship External View Image Block  17
+----------------------------------
+
+Image   0: Size: 135, 58; Origin:  67, 29
+
+
+Ship External View Image Block  18
+----------------------------------
+
+Image   0: Size: 161, 57; Origin:  80, 28
+
+
+Ship External View Image Block  19
+----------------------------------
+
+Image   0: Size: 135, 58; Origin:  67, 29
+
+
+Ship External View Image Block  20
+----------------------------------
+
+Image   0: Size:  85, 59; Origin:  42, 29
+
+
+Ship External View Image Block  21
+----------------------------------
+
+Image   0: Size:  59, 58; Origin:  29, 29
+
+
+Ship External View Image Block  22
+----------------------------------
+
+Image   0: Size:  58, 82; Origin:  28, 41
+
+
+Ship External View Image Block  23
+----------------------------------
+
+Image   0: Size:  85, 78; Origin:  42, 39
+
+
+Ship External View Image Block  24
+----------------------------------
+
+Image   0: Size: 135, 69; Origin:  67, 34
+
+
+Ship External View Image Block  25
+----------------------------------
+
+Image   0: Size: 161, 57; Origin:  80, 28
+
+
+Ship External View Image Block  26
+----------------------------------
+
+Image   0: Size: 135, 70; Origin:  67, 35
+
+
+Ship External View Image Block  27
+----------------------------------
+
+Image   0: Size:  85, 81; Origin:  42, 40
+
+
+Ship External View Image Block  28
+----------------------------------
+
+Image   0: Size:  57, 81; Origin:  28, 40
+
+
+Ship External View Image Block  29
+----------------------------------
+
+Image   0: Size:  56,118; Origin:  27, 59
+
+
+Ship External View Image Block  30
+----------------------------------
+
+Image   0: Size:  85,112; Origin:  42, 56
+
+
+Ship External View Image Block  31
+----------------------------------
+
+Image   0: Size: 136, 85; Origin:  67, 42
+
+
+Ship External View Image Block  32
+----------------------------------
+
+Image   0: Size: 163, 50; Origin:  81, 25
+
+
+Ship External View Image Block  33
+----------------------------------
+
+Image   0: Size: 137, 86; Origin:  68, 43
+
+
+Ship External View Image Block  34
+----------------------------------
+
+Image   0: Size:  85,114; Origin:  42, 57
+
+
+Ship External View Image Block  35
+----------------------------------
+
+Image   0: Size:  56,117; Origin:  27, 58
+
+
+Ship External View Image Block  36
+----------------------------------
+
+Image   0: Size: 161, 46; Origin:  80, 23
+
+
+Ship External View Image Block  37
+----------------------------------
+
+Image   0: Size:  58, 17; Origin:  28,  7
+Image   1: Size:  58, 17; Origin:  28,  7
+Image   2: Size:  58, 35; Origin:  28, 19
+
+
+Ship Block
+----------
+
+Name: K supply depot     ; Class: 14; Index: 25; Type: 59; Radius: 800; Mass: 22000; Max Scale: 4352; Power Plant:  2; Fuel:      0; Damage:  900; Explosive Force: 25000; Max Speed:    0; Cruise Speed:   0; Max Acceleration:    0; Max Yaw/Pitch/Roll:  0/ 0/ 0; Angular Inertia: 15000
+Shields: Fore: 1000; Aft: 1000; Armor: Front: 400; Rear: 300; Left: 400; Right: 300
+    Weapon  0: Type:  12; XYZ:   800,    0,    0; Selected: True
+    Weapon  1: Type:  12; XYZ:   800,  400,    0; Selected: True
+    Weapon  2: Type:  12; XYZ:     0,    0,  800; Selected: True
+    Weapon  3: Type:  12; XYZ:     0,  400,  800; Selected: True
+    Weapon  4: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  5: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  6: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  7: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  8: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon  9: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 10: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 11: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 12: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 13: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 14: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 15: Type:   0; XYZ:     0,    0,    0; Selected: True
+
+
+Debris Image Block
+------------------
+
+
+
+Engine Position Block
+---------------------
+
+Image  0:
+Image  1:
+Image  2:
+Image  3:
+Image  4:
+Image  5:
+Image  6:
+Image  7:
+Image  8:
+Image  9:
+Image 10:
+Image 11:
+Image 12:
+Image 13:
+Image 14:
+Image 15:
+Image 16:
+Image 17:
+Image 18:
+Image 19:
+Image 20:
+Image 21:
+Image 22:
+Image 23:
+Image 24:
+Image 25:
+Image 26:
+Image 27:
+Image 28:
+Image 29:
+Image 30:
+Image 31:
+Image 32:
+Image 33:
+Image 34:
+Image 35:
+Image 36:

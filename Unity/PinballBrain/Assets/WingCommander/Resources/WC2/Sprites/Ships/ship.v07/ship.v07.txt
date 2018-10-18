@@ -1,0 +1,133 @@
+SHIP File
+=========
+
+
+Ship External View Image Block
+------------------------------
+
+Image   0: Size:  79, 63; Origin:  39, 31
+Image   1: Size:  77, 56; Origin:  38, 28
+Image   2: Size:  75, 54; Origin:  37, 27
+Image   3: Size:  70, 50; Origin:  34, 25
+Image   4: Size:  79, 54; Origin:  39, 27
+Image   5: Size:  69, 52; Origin:  34, 26
+Image   6: Size:  74, 55; Origin:  36, 27
+Image   7: Size:  75, 58; Origin:  37, 29
+Image   8: Size:  74, 37; Origin:  36, 18
+Image   9: Size:  74, 38; Origin:  36, 19
+Image  10: Size:  69, 40; Origin:  34, 20
+Image  11: Size:  79, 37; Origin:  39, 18
+Image  12: Size:  70, 31; Origin:  34, 15
+Image  13: Size:  74, 31; Origin:  36, 15
+Image  14: Size:  77, 34; Origin:  38, 17
+Image  15: Size:  75, 20; Origin:  37, 10
+Image  16: Size:  73, 20; Origin:  36, 10
+Image  17: Size:  70, 21; Origin:  34, 10
+Image  18: Size:  79, 22; Origin:  39, 11
+Image  19: Size:  69, 22; Origin:  34, 11
+Image  20: Size:  72, 21; Origin:  35, 10
+Image  21: Size:  72, 21; Origin:  35, 10
+Image  22: Size:  72, 35; Origin:  35, 17
+Image  23: Size:  72, 32; Origin:  35, 16
+Image  24: Size:  68, 33; Origin:  33, 16
+Image  25: Size:  78, 40; Origin:  38, 20
+Image  26: Size:  69, 42; Origin:  34, 21
+Image  27: Size:  71, 41; Origin:  35, 20
+Image  28: Size:  74, 40; Origin:  36, 20
+Image  29: Size:  73, 58; Origin:  36, 29
+Image  30: Size:  71, 54; Origin:  35, 27
+Image  31: Size:  68, 51; Origin:  33, 25
+Image  32: Size:  77, 52; Origin:  38, 26
+Image  33: Size:  68, 48; Origin:  33, 24
+Image  34: Size:  71, 53; Origin:  35, 26
+Image  35: Size:  71, 55; Origin:  35, 27
+Image  36: Size:  77, 64; Origin:  38, 32
+
+
+VDU Outline Image Block
+-----------------------
+
+Image   0: Size:  58, 41; Origin:  28, 20
+Image   1: Size:  58, 41; Origin:  28, 20
+Image   2: Size:  57, 39; Origin:  28, 19
+
+
+Engine Position Block
+---------------------
+
+Image  0: [Exhaust 0: Image: 0; Position:  33, -9; Scale: 236; Rotation:   0; Order: -1]; [Exhaust 1: Image: 0; Position:  35,  9; Scale: 236; Rotation:   0; Order: -1]; [Exhaust 2: Image: 0; Position:  35, -4; Scale: 224; Rotation:   0; Order: -1]; [Exhaust 3: Image: 0; Position:  36,  3; Scale: 224; Rotation:   0; Order: -1];
+Image  1: [Exhaust 0: Image: 0; Position:   8, 26; Scale: 224; Rotation:  90; Order: -1]; [Exhaust 1: Image: 0; Position: -15, 26; Scale: 224; Rotation:  90; Order: -1]; [Exhaust 2: Image: 0; Position:  -9, 26; Scale: 224; Rotation:  90; Order: -1]; [Exhaust 3: Image: 0; Position:   3, 26; Scale: 224; Rotation:  90; Order: -1];
+Image  2: [Exhaust 0: Image: 0; Position:  25, 20; Scale: 216; Rotation:  60; Order: -1]; [Exhaust 1: Image: 0; Position:   5, 27; Scale: 216; Rotation:  60; Order: -1]; [Exhaust 2: Image: 0; Position:  10, 26; Scale: 216; Rotation:  60; Order: -1]; [Exhaust 3: Image: 0; Position:  21, 24; Scale: 216; Rotation:  60; Order: -1];
+Image  3: [Exhaust 0: Image: 0; Position:  33,  9; Scale: 216; Rotation:  31; Order: -1]; [Exhaust 1: Image: 0; Position:  32, 14; Scale: 216; Rotation:  31; Order: -1]; [Exhaust 2: Image: 0; Position:  18, 22; Scale: 216; Rotation:  31; Order: -1]; [Exhaust 3: Image: 0; Position:  24, 20; Scale: 216; Rotation:  31; Order: -1];
+Image  4: [Exhaust 0: Image: 0; Position:  37, -5; Scale: 216; Rotation:   0; Order: -1]; [Exhaust 1: Image: 0; Position:  37,  3; Scale: 216; Rotation:   0; Order: -1]; [Exhaust 2: Image: 0; Position:  34, -9; Scale: 216; Rotation:   0; Order: -1]; [Exhaust 3: Image: 0; Position:  34,  6; Scale: 216; Rotation:   0; Order: -1];
+Image  5: [Exhaust 0: Image: 0; Position:  33,-12; Scale: 216; Rotation: 333; Order: -1]; [Exhaust 1: Image: 0; Position:  25,-19; Scale: 216; Rotation: 333; Order: -1]; [Exhaust 2: Image: 0; Position:  19,-22; Scale: 228; Rotation: 333; Order: -1]; [Exhaust 3: Image: 0; Position:  33, -7; Scale: 228; Rotation: 333; Order: -1];
+Image  6: [Exhaust 0: Image: 0; Position:  22,-21; Scale: 228; Rotation: 304; Order: -1]; [Exhaust 1: Image: 0; Position:  10,-24; Scale: 228; Rotation: 304; Order: -1]; [Exhaust 2: Image: 0; Position:   4,-23; Scale: 240; Rotation: 304; Order: -1]; [Exhaust 3: Image: 0; Position:  25,-18; Scale: 240; Rotation: 304; Order: -1];
+Image  7: [Exhaust 0: Image: 0; Position:   7,-25; Scale: 208; Rotation: 273; Order: -1]; [Exhaust 1: Image: 0; Position:  -6,-25; Scale: 208; Rotation: 273; Order: -1]; [Exhaust 2: Image: 0; Position:  12,-23; Scale: 232; Rotation: 273; Order: -1]; [Exhaust 3: Image: 0; Position: -11,-21; Scale: 232; Rotation: 273; Order: -1];
+Image  8: [Exhaust 0: Image: 2; Position:  -5,-16; Scale: 180; Rotation: 270; Order: -1]; [Exhaust 1: Image: 2; Position:   7,-16; Scale: 180; Rotation: 270; Order: -1]; [Exhaust 2: Image: 2; Position:  12,-15; Scale: 208; Rotation: 270; Order: -1]; [Exhaust 3: Image: 2; Position: -11,-15; Scale: 208; Rotation: 270; Order: -1];
+Image  9: [Exhaust 0: Image: 1; Position:  24,-10; Scale: 204; Rotation: 309; Order: -1]; [Exhaust 1: Image: 1; Position:   9,-16; Scale: 204; Rotation: 309; Order: -1]; [Exhaust 2: Image: 1; Position:   5,-15; Scale: 260; Rotation: 309; Order: -1]; [Exhaust 3: Image: 1; Position:  28,-10; Scale: 260; Rotation: 309; Order: -1];
+Image 10: [Exhaust 0: Image: 1; Position:  34, -3; Scale: 260; Rotation: 340; Order: -1]; [Exhaust 1: Image: 1; Position:  32, -5; Scale: 232; Rotation: 340; Order: -1]; [Exhaust 2: Image: 1; Position:  25, -8; Scale: 232; Rotation: 340; Order: -1]; [Exhaust 3: Image: 1; Position:  20,-12; Scale: 268; Rotation: 340; Order: -1];
+Image 11: [Exhaust 0: Image: 0; Position:  36,  4; Scale: 236; Rotation:   0; Order: -1]; [Exhaust 1: Image: 0; Position:  36,  3; Scale: 236; Rotation:   0; Order: -1]; [Exhaust 2: Image: 0; Position:  35, -3; Scale: 236; Rotation:   0; Order: -1]; [Exhaust 3: Image: 0; Position:  33, -5; Scale: 236; Rotation:   0; Order: -1];
+Image 12: [Exhaust 0: Image: 0; Position:  18,  8; Scale: 236; Rotation:  20; Order:  1]; [Exhaust 1: Image: 0; Position:  17,  5; Scale: 236; Rotation:  20; Order:  1]; [Exhaust 2: Image: 0; Position:  21,  4; Scale: 236; Rotation:  20; Order:  1]; [Exhaust 3: Image: 0; Position:  28,  3; Scale: 236; Rotation:  20; Order:  1];
+Image 13: [Exhaust 0: Image: 2; Position:   2, 13; Scale: 224; Rotation:  48; Order:  1]; [Exhaust 1: Image: 2; Position:   5, 11; Scale: 224; Rotation:  48; Order:  1]; [Exhaust 2: Image: 2; Position:  15,  9; Scale: 224; Rotation:  48; Order:  1]; [Exhaust 3: Image: 2; Position:  21, 10; Scale: 224; Rotation:  48; Order:  1];
+Image 14: [Exhaust 0: Image: 2; Position:  10, 14; Scale: 232; Rotation:  89; Order:  1]; [Exhaust 1: Image: 2; Position:   6, 11; Scale: 232; Rotation:  89; Order:  1]; [Exhaust 2: Image: 2; Position: -10, 15; Scale: 232; Rotation:  89; Order:  1]; [Exhaust 3: Image: 2; Position:  -5, 12; Scale: 232; Rotation:  89; Order:  1];
+Image 15: [Exhaust 0: Image: 3; Position: -15,  0; Scale: 188; Rotation:  90; Order:  1]; [Exhaust 1: Image: 3; Position:   7,  0; Scale: 188; Rotation:  90; Order:  1]; [Exhaust 2: Image: 3; Position:   0, -1; Scale: 188; Rotation:  90; Order:  1]; [Exhaust 3: Image: 3; Position:  -8, -1; Scale: 188; Rotation:  90; Order:  1];
+Image 16: [Exhaust 0: Image: 2; Position:   5, -2; Scale: 248; Rotation:   0; Order:  1]; [Exhaust 1: Image: 2; Position:  13, -1; Scale: 248; Rotation:   0; Order:  1]; [Exhaust 2: Image: 2; Position:  19,  3; Scale: 248; Rotation:   0; Order:  1];
+Image 17: [Exhaust 0: Image: 1; Position:  25,  0; Scale: 188; Rotation:   0; Order:  1]; [Exhaust 1: Image: 1; Position:  34,  3; Scale: 188; Rotation:   0; Order:  1];
+Image 18: [Exhaust 0: Image: 1; Position:  33,  1; Scale: 196; Rotation:   0; Order:  1]; [Exhaust 1: Image: 1; Position:  39,  4; Scale: 196; Rotation:   0; Order:  0];
+Image 19: [Exhaust 0: Image: 1; Position:  34,  3; Scale: 204; Rotation:   0; Order:  0]; [Exhaust 1: Image: 1; Position:  27, -1; Scale: 204; Rotation:   0; Order:  0]; [Exhaust 2: Image: 1; Position:  21, -1; Scale: 204; Rotation:   0; Order:  0]; [Exhaust 3: Image: 1; Position:  19,  4; Scale: 204; Rotation:   0; Order:  0];
+Image 20: [Exhaust 0: Image: 2; Position:  17, -1; Scale: 168; Rotation:   8; Order:  0]; [Exhaust 1: Image: 2; Position:   6, -1; Scale: 168; Rotation:   8; Order:  0]; [Exhaust 2: Image: 2; Position:   3,  5; Scale: 188; Rotation:   8; Order:  0]; [Exhaust 3: Image: 2; Position:  26,  4; Scale: 188; Rotation:   8; Order:  0];
+Image 21: [Exhaust 0: Image: 3; Position:   6, -2; Scale: 192; Rotation:   0; Order:  0]; [Exhaust 1: Image: 3; Position:  -5, -2; Scale: 192; Rotation:   0; Order:  0]; [Exhaust 2: Image: 3; Position: -12,  4; Scale: 236; Rotation:   0; Order:  0]; [Exhaust 3: Image: 3; Position:  13,  3; Scale: 236; Rotation:   0; Order:  0];
+Image 22: [Exhaust 0: Image: 0; Position:  -7,  6; Scale: 176; Rotation:  90; Order:  0]; [Exhaust 1: Image: 0; Position:   5,  5; Scale: 176; Rotation:  90; Order:  0]; [Exhaust 2: Image: 0; Position:  11, 10; Scale: 212; Rotation:  90; Order:  0]; [Exhaust 3: Image: 0; Position: -14, 10; Scale: 212; Rotation:  90; Order:  0];
+Image 23: [Exhaust 0: Image: 0; Position:   8,  5; Scale: 212; Rotation:  50; Order:  0]; [Exhaust 1: Image: 0; Position:  26,  9; Scale: 212; Rotation:  50; Order:  0]; [Exhaust 2: Image: 0; Position:  19,  4; Scale: 212; Rotation:  50; Order:  0]; [Exhaust 3: Image: 0; Position:   4, 12; Scale: 212; Rotation:  50; Order:  0];
+Image 24: [Exhaust 0: Image: 1; Position:  33,  2; Scale: 236; Rotation:  20; Order:  0]; [Exhaust 1: Image: 1; Position:  19,  8; Scale: 236; Rotation:  20; Order:  0]; [Exhaust 2: Image: 2; Position:  26, -2; Scale: 228; Rotation:  20; Order:  0]; [Exhaust 3: Image: 2; Position:  18,  1; Scale: 228; Rotation:  20; Order:  0];
+Image 25: [Exhaust 0: Image: 0; Position:  33, -5; Scale: 184; Rotation:   0; Order:  1]; [Exhaust 1: Image: 0; Position:  31, -9; Scale: 184; Rotation:   0; Order:  0]; [Exhaust 2: Image: 0; Position:  30, -6; Scale: 184; Rotation:   0; Order:  0]; [Exhaust 3: Image: 0; Position:  35,  2; Scale: 192; Rotation:   0; Order:  0];
+Image 26: [Exhaust 0: Image: 0; Position:  19,-16; Scale: 192; Rotation: 344; Order:  0]; [Exhaust 1: Image: 0; Position:  20,-15; Scale: 192; Rotation: 344; Order:  0]; [Exhaust 2: Image: 0; Position:  29,-10; Scale: 192; Rotation: 344; Order:  0]; [Exhaust 3: Image: 0; Position:  33, -7; Scale: 192; Rotation: 344; Order:  0];
+Image 27: [Exhaust 0: Image: 1; Position:  14, -8; Scale: 192; Rotation: 313; Order:  1]; [Exhaust 1: Image: 1; Position:   9,-10; Scale: 192; Rotation: 313; Order:  1]; [Exhaust 2: Image: 1; Position:  23,-10; Scale: 200; Rotation: 313; Order:  1]; [Exhaust 3: Image: 1; Position:   7,-14; Scale: 200; Rotation: 313; Order:  1];
+Image 28: [Exhaust 0: Image: 1; Position:  -4, -9; Scale: 200; Rotation: 270; Order:  1]; [Exhaust 1: Image: 1; Position:   3, -9; Scale: 200; Rotation: 270; Order:  1]; [Exhaust 2: Image: 1; Position:  10,-15; Scale: 200; Rotation: 270; Order:  1]; [Exhaust 3: Image: 1; Position: -11,-16; Scale: 200; Rotation: 270; Order:  1];
+Image 29: [Exhaust 0: Image: 2; Position:  -6,-24; Scale: 180; Rotation: 270; Order:  0]; [Exhaust 1: Image: 2; Position:   5,-25; Scale: 180; Rotation: 270; Order:  0]; [Exhaust 2: Image: 1; Position:  10,-26; Scale: 180; Rotation: 270; Order:  0]; [Exhaust 3: Image: 1; Position: -11,-26; Scale: 180; Rotation: 270; Order:  0];
+Image 30: [Exhaust 0: Image: 0; Position:  22,-17; Scale: 192; Rotation: 298; Order:  1]; [Exhaust 1: Image: 1; Position:   6,-22; Scale: 164; Rotation: 298; Order:  0]; [Exhaust 2: Image: 1; Position:   2,-23; Scale: 180; Rotation: 300; Order:  0]; [Exhaust 3: Image: 1; Position:  19,-19; Scale: 164; Rotation: 296; Order:  0];
+Image 31: [Exhaust 0: Image: 0; Position:  20,-23; Scale: 192; Rotation: 330; Order:  1]; [Exhaust 1: Image: 0; Position:  30,-14; Scale: 192; Rotation: 330; Order:  1]; [Exhaust 2: Image: 0; Position:  33,-12; Scale: 204; Rotation: 330; Order:  0]; [Exhaust 3: Image: 0; Position:  20,-24; Scale: 204; Rotation: 330; Order:  0];
+Image 32: [Exhaust 0: Image: 0; Position:  35, -8; Scale: 204; Rotation:   0; Order:  0]; [Exhaust 1: Image: 0; Position:  35,  3; Scale: 204; Rotation:   0; Order:  0]; [Exhaust 2: Image: 0; Position:  33,  5; Scale: 204; Rotation:   0; Order:  0]; [Exhaust 3: Image: 0; Position:  32,-11; Scale: 204; Rotation:   0; Order:  0];
+Image 33: [Exhaust 0: Image: 0; Position:  32, 12; Scale: 204; Rotation:  26; Order:  0]; [Exhaust 1: Image: 0; Position:  23, 18; Scale: 204; Rotation:  26; Order:  0]; [Exhaust 2: Image: 0; Position:  18, 19; Scale: 204; Rotation:  26; Order:  0]; [Exhaust 3: Image: 0; Position:  32,  6; Scale: 204; Rotation:  26; Order:  0];
+Image 34: [Exhaust 0: Image: 0; Position:  22, 23; Scale: 192; Rotation:  64; Order:  0]; [Exhaust 1: Image: 0; Position:  10, 26; Scale: 192; Rotation:  64; Order:  0]; [Exhaust 2: Image: 0; Position:   3, 24; Scale: 208; Rotation:  68; Order:  0]; [Exhaust 3: Image: 0; Position:  25, 18; Scale: 208; Rotation:  68; Order:  0];
+Image 35: [Exhaust 0: Image: 1; Position:   6, 28; Scale: 208; Rotation:  89; Order:  0]; [Exhaust 1: Image: 1; Position:  -7, 28; Scale: 208; Rotation:  89; Order:  0]; [Exhaust 2: Image: 1; Position: -12, 26; Scale: 224; Rotation:  89; Order:  0]; [Exhaust 3: Image: 1; Position:  11, 25; Scale: 224; Rotation:  89; Order:  0];
+Image 36: [Exhaust 0: Image: 1; Position:  30,  6; Scale: 180; Rotation:   0; Order:  0]; [Exhaust 1: Image: 1; Position:  33, -6; Scale: 180; Rotation:   0; Order:  0]; [Exhaust 2: Image: 1; Position:  34, -9; Scale: 216; Rotation:   0; Order:  0]; [Exhaust 3: Image: 1; Position:  34, 11; Scale: 220; Rotation:   0; Order:  0];
+
+
+Ship Block
+----------
+
+Name: Jalkehi            ; Class: 12; Index:  7; Type: 50; Radius: 200; Mass:   200; Max Scale: 1280; Power Plant:  6; Fuel: 200000; Damage:    7; Explosive Force:  8000; Max Speed:  280; Cruise Speed: 200; Max Acceleration:  512; Max Yaw/Pitch/Roll:  4/ 4/ 4; Angular Inertia:  1600
+Shields: Fore: 115; Aft: 115; Armor: Front: 135; Rear: 135; Left: 125; Right: 125
+    Weapon  0: Type:   7; XYZ:    32,   28,   84; Selected: True
+    Weapon  1: Type:   7; XYZ:    28,   36,   84; Selected: True
+    Weapon  2: Type:   7; XYZ:   -28,   36,   84; Selected: True
+    Weapon  3: Type:   7; XYZ:   -32,   28,   84; Selected: True
+    Weapon  4: Type:  10; XYZ:     0,   40,   84; Selected: True
+    Weapon  5: Type:  18; XYZ:    72,   36,    8; Selected: True
+    Weapon  6: Type:  18; XYZ:    52,   20,    8; Selected: False
+    Weapon  7: Type:  18; XYZ:   -52,   20,    8; Selected: False
+    Weapon  8: Type:  18; XYZ:   -72,   20,    8; Selected: False
+    Weapon  9: Type:  15; XYZ:     0,   40,   12; Selected: False
+    Weapon 10: Type:  11; XYZ:     0,    0,  -48; Selected: True
+    Weapon 11: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 12: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 13: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 14: Type:   0; XYZ:     0,    0,    0; Selected: True
+    Weapon 15: Type:   0; XYZ:     0,    0,    0; Selected: True
+
+
+Debris Image Block
+------------------
+
+Image   0: Size:  39, 30; Origin:  19, 15
+Image   1: Size:  40, 22; Origin:  19, 11
+Image   2: Size:  41, 39; Origin:  20, 19
+Image   3: Size:  40, 47; Origin:  19, 23
+Image   4: Size:  40, 48; Origin:  19, 24
+Image   5: Size:  39, 39; Origin:  19, 19
+Image   6: Size:  40, 25; Origin:  19, 12
+Image   7: Size:  39, 30; Origin:  19, 15
+Image   8: Size:  40, 42; Origin:  19, 21
+Image   9: Size:  40, 51; Origin:  19, 25
+Image  10: Size:  40, 48; Origin:  19, 24

@@ -1,0 +1,19 @@
+VGA File
+========
+
+
+Image Block   0
+---------------
+
+Image   0: Size: 117, 18; Origin:  57,  8
+Image   1: Size: 221, 21; Origin: 109, 10
+Image   2: Size: 278,101; Origin:   0,100
+    
+    Hot Rectangle Group
+    -------------------
+        
+        STRUCTURE CHUNK
+        
+        Rectangle 0: Identifier: 2; Bounds:  42,162 277,199
+        Rectangle 1: Identifier: 1; Bounds:  42,123 277,160
+        Rectangle 2: Identifier: 0; Bounds:   0,  0 319,199
