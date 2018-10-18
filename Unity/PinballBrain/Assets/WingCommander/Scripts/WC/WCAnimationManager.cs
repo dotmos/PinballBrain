@@ -16,6 +16,7 @@ public class WCAnimationManager {
         WC2Explosion,
         WC2Explosion2,
         WC2BlueExplosion,
+        WC2EngineExhaust
     }
 
     const string wc2AnimationsPath = "WC2/Sprites/Animation/";
@@ -94,6 +95,11 @@ public class WCAnimationManager {
         } },
         { AnimationEnum.WC2BlueExplosion, new WCAnimationData(){
             path = wc2AnimationsPath + "BlueExplosion",
+            additiveComporession = false,
+            basedOnFirstFrame = false
+        } },
+        { AnimationEnum.WC2EngineExhaust, new WCAnimationData(){
+            path = wc2AnimationsPath + "EngineExhaust",
             additiveComporession = false,
             basedOnFirstFrame = false
         } }
