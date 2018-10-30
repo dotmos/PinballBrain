@@ -7,8 +7,8 @@ using System;
 
 public class GameBrain : BrainBase {
     // Switches -------------------------------------------------------------------------------------------------
-    const short SWITCH_FLIPPER_LEFT = 10;
-    const short SWITCH_FLIPPER_RIGHT = 11;
+    const short SWITCH_FLIPPER_LEFT = 0;
+    const short SWITCH_FLIPPER_RIGHT = 1;
 
     const short bumperSlingshotActiveTime = 50;
     const short SWITCH_SLINGSHOT_LEFT = 12;
@@ -281,7 +281,5 @@ public class GameBrain : BrainBase {
             DeactivateLED(LED_TARGETBANK_UPPERCENTER_1);
             DeactivateLED(LED_TARGETBANK_UPPERCENTER_2);
         }).AddTo(this);
-        
-
     }
 }

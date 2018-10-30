@@ -1,13 +1,38 @@
 ﻿using System;
 
+
+
 namespace PinballBrain {
-    public interface IBrain {
+    public interface IBrain {  
+
         void AddDisposable(IDisposable disposable);
 
         void ActivateSolenoid(byte solenoid);
         void ActivateSolenoid(byte solenoid, short ms);
 
+        /// <summary>
+        /// Execute action when switch was triggered (actived and deactivated)
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
         IDisposable ConnectSwitchToAction(short switchID, Action<short> action);
+
+        /// <summary>
+        /// Execute action when switch state changes to active
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        IDisposable OnSwitchActive(short switchID, Action<short> action);
+
+        /// <summary>
+        /// Execute action when switch state changes to inactive
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        IDisposable OnSwitchInactive(short switchID, Action<short> action);
 
         /// <summary>
         /// If switch is active, solenoid will be activated. If switch is inactive, solenoid will be deactivated. Be careful to not destroy the solenoid by overheating it.
@@ -99,10 +124,12 @@ namespace PinballBrain {
         IDisposable ConnectSwitchToScoreIncrease(short switchID, int score);
         IDisposable ConnectSwitchToScoreIncrease(short switchID, int score, int player);
 
+        IObservable<int> OnCurrentPlayerChanged();
         IObservable<PlayerScoreChangedEvent> OnCurrentPlayerScoreChanged();
         IObservable<PlayerScoreChangedEvent> OnPlayerScoreChanged(int playerID);
 
         int GetPlayerScore(int playerID);
+        void NextPlayer();
         void IncreaseCurrentPlayerScore(int score);
         void IncreasePlayerScore(int player, int score);
     }

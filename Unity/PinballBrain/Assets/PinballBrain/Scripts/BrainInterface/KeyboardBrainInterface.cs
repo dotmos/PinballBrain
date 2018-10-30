@@ -329,7 +329,9 @@ namespace PinballBrain {
         }
 
         public void Dispose() {
-            this.serialPort.Dispose();
+            if(this.serialPort != null) {
+                this.serialPort.Dispose();
+            }
         }
     }
 }

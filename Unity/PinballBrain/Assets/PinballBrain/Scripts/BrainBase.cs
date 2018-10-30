@@ -14,6 +14,7 @@ namespace PinballBrain {
         int maxPlayers = 4;
         
         ReactiveCommand<PlayerScoreChangedEvent> PlayerScoreChangedCmd;
+        ReactiveCommand<int> CurrentPlayerChanged;
         List<PlayerScoreChangedEvent> playerScoreChangedEventCache;
         CompositeDisposable disposables;
 
@@ -24,6 +25,7 @@ namespace PinballBrain {
             playerScore = new List<int>(maxPlayers) { 0, 0, 0, 0 };
             playerScoreChangedEventCache = new List<PlayerScoreChangedEvent>(maxPlayers);
             PlayerScoreChangedCmd = new ReactiveCommand<PlayerScoreChangedEvent>();
+            CurrentPlayerChanged = new ReactiveCommand<int>();
 
             for (int i=0; i<maxPlayers; ++i) {
                 playerScoreChangedEventCache.Add(new PlayerScoreChangedEvent() { playerID = i });
@@ -86,13 +88,33 @@ namespace PinballBrain {
         }
 
         /// <summary>
-        /// If switch is active, action will be triggered
+        /// If switch is triggered (activated and deactivated) action will be executed
         /// </summary>
         /// <param name="switchID"></param>
         /// <param name="action"></param>
         /// <returns></returns>
         public IDisposable ConnectSwitchToAction(short switchID, Action<short> action) {
+            return Observable.Concat(BrainInterface.OnSwitchActive(switchID), BrainInterface.OnSwitchInactive(switchID)).Subscribe(e => action(switchID)).AddTo(this);
+        }
+
+        /// <summary>
+        /// Execute action when switch state changes to active
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public IDisposable OnSwitchActive(short switchID, Action<short> action) {
             return BrainInterface.OnSwitchActive(switchID).Subscribe(e => action(e)).AddTo(this);
+        }
+
+        /// <summary>
+        /// Execute action when switch state changes to inactive
+        /// </summary>
+        /// <param name="switchID"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public IDisposable OnSwitchInactive(short switchID, Action<short> action) {
+            return BrainInterface.OnSwitchInactive(switchID).Subscribe(e => action(e)).AddTo(this);
         }
 
         /// <summary>
@@ -245,6 +267,19 @@ namespace PinballBrain {
         /// <returns></returns>
         public int GetPlayerScore(int playerID) {
             return playerScore[playerID];
+        }
+
+        /// <summary>
+        /// Sets the next player
+        /// </summary>
+        public void NextPlayer() {
+            currentPlayer++;
+            if (currentPlayer >= maxPlayers) currentPlayer = 0;
+            CurrentPlayerChanged.Execute(currentPlayer);
+        }
+
+        public IObservable<int> OnCurrentPlayerChanged() {
+            return CurrentPlayerChanged;
         }
 
         /// <summary>
