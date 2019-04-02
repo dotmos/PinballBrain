@@ -19,14 +19,14 @@ public class GameBrain : BrainBase {
     const short SWITCH_BUMPER_2 = 13;
     const short SWITCH_BUMPER_3 = 14;
 
-    const short SWITCH_TARGETBANK_LOWERLEFT_1 = 0;
-    const short SWITCH_TARGETBANK_LOWERLEFT_2 = 1;
-    const short SWITCH_TARGETBANK_LOWERLEFT_3 = 2;
+    const short SWITCH_TARGETBANK_LOWERLEFT_1 = 3;
+    const short SWITCH_TARGETBANK_LOWERLEFT_2 = 4;
+    const short SWITCH_TARGETBANK_LOWERLEFT_3 = 5;
 
-    const short SWITCH_DROPTARGETBANK_LOWERLEFT_1 = 12;
-    const short SWITCH_DROPTARGETBANK_LOWERLEFT_2 = 13;
-    const short SWITCH_DROPTARGETBANK_LOWERLEFT_3 = 14;
-    const short SWITCH_DROPTARGETBANK_LOWERLEFT_4 = 15;
+    const short SWITCH_DROPTARGETBANK_LOWERLEFT_1 = 6;
+    const short SWITCH_DROPTARGETBANK_LOWERLEFT_2 = 7;
+    const short SWITCH_DROPTARGETBANK_LOWERLEFT_3 = 8;
+    const short SWITCH_DROPTARGETBANK_LOWERLEFT_4 = 9;
 
     const short SWITCH_TARGETBANK_LOWERRIGHT_1 = 21;
     const short SWITCH_TARGETBANK_LOWERRIGHT_2 = 22;
@@ -101,6 +101,16 @@ public class GameBrain : BrainBase {
     /// </summary>
     const short DISPLAY_ANIMATION_EXPLODE = 5;
 
+    // EVENTS -------------------------------------------------------------------------------------------------------
+    public class Event_StartVideoMode {
+        public enum VideoModeEnum {
+            AsteroidEvade,
+            KilrathiKill
+        }
+        public VideoModeEnum videoMode;
+    }
+    Event_StartVideoMode event_StartVideoMode = new Event_StartVideoMode();
+
 
     // Logic --------------------------------------------------------------------------------------------------------
 
@@ -127,6 +137,14 @@ public class GameBrain : BrainBase {
 
 
     protected override void SetupRules() {
+        //Just for testing: Start videomode once player reaches score of 1000
+        OnCurrentPlayerScoreChanged().Subscribe(e => {
+            if (e.currentScore >= 1000) {
+                PublishBrainEvent(event_StartVideoMode);
+            }
+        }).AddTo(this);
+
+
         //Debug stuff
         BrainInterface.OnSwitchActive(1).Subscribe(e => Debug.Log("Switch " + e + " active")).AddTo(this);
         BrainInterface.OnSwitchInactive(1).Subscribe(e => Debug.Log("Switch " + e + " inactive")).AddTo(this);
@@ -183,16 +201,16 @@ public class GameBrain : BrainBase {
         ConnectSwitchToLED(SWITCH_BUMPER_3, LED_BUMPER_3, LED_BUMPER_DATA, LEDAction.Blink);
         
 
-        //Setup lower left targetbank ----------------------------------------------------------------------------------------------------------------------
+        //Setup lower left droptarget targetbank ----------------------------------------------------------------------------------------------------------------------
         lowerLeftDropTargetbank = new TargetBank(this, 
             new List<short>() {
                 SWITCH_TARGETBANK_LOWERLEFT_1,
                 SWITCH_TARGETBANK_LOWERLEFT_2,
                 SWITCH_TARGETBANK_LOWERLEFT_3,
-                //SWITCH_DROPTARGETBANK_LOWERLEFT_1,
-                //SWITCH_DROPTARGETBANK_LOWERLEFT_2,
-                //SWITCH_DROPTARGETBANK_LOWERLEFT_3,
-                //SWITCH_DROPTARGETBANK_LOWERLEFT_4
+                SWITCH_DROPTARGETBANK_LOWERLEFT_1,
+                SWITCH_DROPTARGETBANK_LOWERLEFT_2,
+                SWITCH_DROPTARGETBANK_LOWERLEFT_3,
+                SWITCH_DROPTARGETBANK_LOWERLEFT_4
             },
             true, 500);
         //Activate bank LEDs
@@ -208,12 +226,15 @@ public class GameBrain : BrainBase {
             //TODO: Display animation takes A LOT of performance on the arduino. LED flashing takes A LOT longer when animation is playing.
             //BrainInterface.PlayTFTAnimation(DISPLAY_TARGETBANK_LOWERLEFT, DISPLAY_ANIMATION_EXPLODE);
 
+            //Reset droptargets
+            ActivateSolenoid(SOLENOID_DROPTARGET_LOWERLEFT, 50);
+
             //Flash targetbank LEDS
             SetLED(LED_TARGETBANK_LOWERLEFT_1, LEDAction.Blink, LED_TARGETBANK_LOWERLEFT_ALLHIT_DATA);
             SetLED(LED_TARGETBANK_LOWERLEFT_2, LEDAction.Blink, LED_TARGETBANK_LOWERLEFT_ALLHIT_DATA);
             SetLED(LED_TARGETBANK_LOWERLEFT_3, LEDAction.Blink, LED_TARGETBANK_LOWERLEFT_ALLHIT_DATA);
 
-            //TODO: Add points
+            //Add points
             IncreaseCurrentPlayerScore(2500);
 
             //TODO: Play audio
@@ -243,7 +264,7 @@ public class GameBrain : BrainBase {
             //TODO: Play animation + audio
         }).AddTo(this);
 
-        //Setup upper right targetbank -------------------------------------------------------------------------------------------------------------------------
+        //Setup upper right droptarget targetbank -------------------------------------------------------------------------------------------------------------------------
         upperRightDropTargetbank = new TargetBank(this,
             new List<short>() {
                 SWITCH_TARGETBANK_UPPERRIGHT_1,
@@ -281,5 +302,11 @@ public class GameBrain : BrainBase {
             DeactivateLED(LED_TARGETBANK_UPPERCENTER_1);
             DeactivateLED(LED_TARGETBANK_UPPERCENTER_2);
         }).AddTo(this);
+
+
+
+
+        
+
     }
 }

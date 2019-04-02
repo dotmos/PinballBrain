@@ -52,14 +52,23 @@ public class UnityBridge : MonoBehaviour {
         VideoPlayer.OnVideoFinished().Subscribe(e => {
             videoPlayerObject.SetActive(false);
         }).AddTo(this);
-        //p.Play(Application.streamingAssetsPath + "/WC2/Videos/Intro.mp4");
+
+        //Brain.NextPlayer();
+        
 
         //Setup videomode games
         this.asteroidGame = GameObject.Instantiate(Resources.Load<GameObject>("WC2/Prefabs/Videomode/AsteroidGame"), videoModeGameContainer).GetComponent<IVideomodeGame>();
         this.asteroidGame.SetUnityBridge(this);
         this.asteroidGame.OnGameFinished().Subscribe(e => VideoPlayer.Play(Videos.WC2.Flyby)).AddTo(this);
-        this.asteroidGame.StartGame();
+        //this.asteroidGame.StartGame();
+        //Start videomode once brain fires event
+        this.Brain.OnBrainEvent<GameBrain.Event_StartVideoMode>().Subscribe(e => {
+            this.asteroidGame.StartGame();
+        }).AddTo(this);
 
+        Brain.StartNewGame();
+
+        
     }
 
     private void OnGUI() {

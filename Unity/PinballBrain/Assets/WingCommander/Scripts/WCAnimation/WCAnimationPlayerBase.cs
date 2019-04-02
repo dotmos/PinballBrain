@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using System;
 
 public abstract class WCAnimationPlayerBase : MonoBehaviour {
 
@@ -9,6 +11,8 @@ public abstract class WCAnimationPlayerBase : MonoBehaviour {
         
     [Tooltip("Object to destroy when animation is finished")]
     public GameObject destroyOnAnimationFinish;
+
+    ReactiveCommand<bool> animationFinished;
 
     public enum Mode {
         Loop,
@@ -23,6 +27,10 @@ public abstract class WCAnimationPlayerBase : MonoBehaviour {
 
     WCAnimation wcAnimation;
 
+    private void Awake() {
+        animationFinished = new ReactiveCommand<bool>();
+    }
+
     // Use this for initialization
     void Start() {
         wcAnimation = WCAnimationManager.GetAnimation(animationID);
@@ -36,6 +44,10 @@ public abstract class WCAnimationPlayerBase : MonoBehaviour {
 
     protected virtual void OnStart() {
 
+    }
+
+    public IObservable<bool> OnAnimationFinished() {
+        return animationFinished;
     }
 
     
@@ -54,6 +66,7 @@ public abstract class WCAnimationPlayerBase : MonoBehaviour {
                 if (mode == Mode.Loop) {
                     animationFrameIndex = 0;
                 } else if (mode == Mode.PlayOnce) {
+                    animationFinished.Execute(true);
                     if (destroyOnAnimationFinish != null) Destroy(destroyOnAnimationFinish);
                     if (this != null) Destroy(this);
                 }

@@ -132,6 +132,18 @@ namespace PinballBrain {
         void NextPlayer();
         void IncreaseCurrentPlayerScore(int score);
         void IncreasePlayerScore(int player, int score);
+
+        /// <summary>
+        /// Listen to a generic brain event. Needed to communicate with the outside world (i.e. start videomode in unity)
+        /// </summary>
+        /// <param name="evt"></param>
+        /// <returns></returns>
+        IObservable<T> OnBrainEvent<T>();
+
+        /// <summary>
+        /// Tell brain to start a new game
+        /// </summary>
+        void StartNewGame();
     }
 
     public class LEDData {

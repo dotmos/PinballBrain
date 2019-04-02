@@ -94,6 +94,18 @@ namespace PinballBrain {
             if (Input.GetKeyDown(KeyCode.Alpha5)) {
                 switchActive.OnNext(7);
             }
+            if (Input.GetKeyDown(KeyCode.Alpha6)) {
+                switchActive.OnNext(8);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha7)) {
+                switchActive.OnNext(9);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha8)) {
+                switchActive.OnNext(10);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha9)) {
+                switchActive.OnNext(11);
+            }
 
 
             if (Input.GetKeyUp(KeyCode.LeftControl)) {
@@ -119,6 +131,18 @@ namespace PinballBrain {
             }
             if (Input.GetKeyUp(KeyCode.Alpha5)) {
                 switchInactive.OnNext(7);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha6)) {
+                switchInactive.OnNext(8);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha7)) {
+                switchInactive.OnNext(9);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha8)) {
+                switchInactive.OnNext(10);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha9)) {
+                switchInactive.OnNext(11);
             }
 
         }

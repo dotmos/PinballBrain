@@ -276,6 +276,7 @@ namespace PinballBrain {
             currentPlayer++;
             if (currentPlayer >= maxPlayers) currentPlayer = 0;
             CurrentPlayerChanged.Execute(currentPlayer);
+            IncreaseCurrentPlayerScore(0);
         }
 
         public IObservable<int> OnCurrentPlayerChanged() {
@@ -320,6 +321,38 @@ namespace PinballBrain {
 
         public IObservable<PlayerScoreChangedEvent> OnCurrentPlayerScoreChanged() {
             return PlayerScoreChangedCmd.Where(v => v.playerID == currentPlayer);
+        }
+
+        /// <summary>
+        /// Brain event stream
+        /// </summary>
+        Subject<object> brainEvents = new Subject<object>();
+        /// <summary>
+        /// Listen to an event of this brain
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="evt"></param>
+        /// <returns></returns>
+        public IObservable<T> OnBrainEvent<T>() {
+            return brainEvents.Where(o => o is T).Select(o => (T)o);
+        }
+        /// <summary>
+        /// Publish an event that other scripts can listen to by using OnBrainEvent()
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="evt"></param>
+        protected void PublishBrainEvent<T>(T evt) {
+            brainEvents.OnNext(evt);
+        }
+
+        public virtual void StartNewGame() {
+            //Reset score
+            for(int i=0; i<playerScore.Count; ++i) {
+                playerScore[i] = 0;
+            }
+            //Start with player 1
+            currentPlayer = -1;
+            NextPlayer();
         }
     }
 }

@@ -14,11 +14,14 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
     public float asteroidSpeed = 25;
     public GameObject playerPrefab;
     public GameObject playerDeathEffectPrefab;
+    public GameObject gameOverAnimationPrefab;
     public Transform gameContainer;
     public int asteroidsPerRow = 3;
     public float playerSpeed = 100;
     public int scorePerAsteroid = 250;
     public GameObject gameOverUI;
+    public AudioSource scoreSound;
+    
 
     HashSet<GameObject> objects;
     HashSet<GameObject> asteroids;
@@ -74,6 +77,13 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
     /// Start the game
     /// </summary>
     public void StartGame() {
+        //Do nothing if game is already running
+        if (gameRunning) return;
+
+        //Stop whatever video is currently running
+        this.videoPlayer.Stop();
+        
+
         if(brain == null) {
             Debug.LogError("No brain set! Can not start game.");
             return;
@@ -85,7 +95,7 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
 
         //Create player
         player = Instantiate(playerPrefab, gameContainer);
-        player.transform.position = new Vector3(Screen.width * 0.5f, Screen.height * 0.2f , 0);
+        player.transform.position = new Vector3(Screen.width * 0.5f, Screen.height * 0.15f , 0);
         Rigidbody2D playerRigid = player.AddComponent<Rigidbody2D>();
         playerRigid.gravityScale = 0;
         playerRigid.freezeRotation = true;
@@ -127,15 +137,24 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
             foreach (GameObject go in asteroids) {
                 go.transform.position += Vector3.down * Time.deltaTime * absoluteAsteroidMoveSpeed;
 
-                //Destroy objects behind "Killline" and add points
+                //Destroy objects behind "Killline" and add score
                 if (go.transform.position.y <= asteroidKillLineY) {
-                    if (!gameOver) brain.IncreaseCurrentPlayerScore(scorePerAsteroid);
+                    if (!gameOver) {
+                        if (scoreSound != null) scoreSound.Play();
+                        brain.IncreaseCurrentPlayerScore(scorePerAsteroid);
+                    }
                     Destroy(go);
                 }
             }
 
             //Move player
-            if(player != null) player.transform.position += Vector3.right * (playerMoveRight + playerMoveLeft) * Time.deltaTime * (Screen.width * 0.01f * playerSpeed);
+            if (player != null) {
+                //Move
+                player.transform.position += Vector3.right * (playerMoveRight + playerMoveLeft) * Time.deltaTime * (Screen.width * 0.01f * playerSpeed);
+                //Keep on screen
+                if (player.transform.position.x < 100) player.transform.position = new Vector3(100, player.transform.position.y, player.transform.position.z);
+                else if(player.transform.position.x > Screen.width - 100) player.transform.position = new Vector3(Screen.width - 100, player.transform.position.y, player.transform.position.z);
+            }
         }
 	}
 
@@ -161,7 +180,7 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
         for (int i=0; i<count; ++i) {
             SpawnRandomAsteroid(
                 rowPositionOffset + (int)(i * distanceBetweenAsteroids), rowPositionOffset + (int)(i * distanceBetweenAsteroids + distanceBetweenAsteroidsHalf),
-                100,
+                300,
                 1.5f, 3.0f);
         }
     }
@@ -172,27 +191,45 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
 
     void GameOver() {
         gameOver = true;
-        //gamePaused = true;
+        
+        //Play death animation, then end the game
+        if (gameOverAnimationPrefab != null) {
+            gamePaused = true;
+            //Destroy player
+            Destroy(this.player.gameObject);
 
-        //Player explosion at player position
-        Instantiate(playerDeathEffectPrefab, gameContainer).transform.position = this.player.transform.position;
+            GameObject gameOverAnimation = GameObject.Instantiate(gameOverAnimationPrefab.gameObject, gameContainer);
+            gameOverAnimation.GetComponentInChildren<WCAnimationPlayerBase>().OnAnimationFinished().Subscribe(e => {
+                EndGame();
+            }).AddTo(this).AddTo(gameOverAnimation);
 
-        //Destroy player
-        Destroy(this.player.gameObject);
+        } else {
+            //Player explosion at player position
+            GameObject playerDeathEffect = Instantiate(playerDeathEffectPrefab, gameContainer);
+            playerDeathEffect.transform.position = this.player.transform.position;
+            playerDeathEffect.GetComponentInChildren<WCAnimationPlayerBase>().OnAnimationFinished().Subscribe(e => {
+                EndGame();
+            }).AddTo(this).AddTo(playerDeathEffect);
+            //Destroy player
+            Destroy(this.player.gameObject);
+        }
+        
+        
+        
 
+        /*
         //Play game over video
         videoPlayer.Play(Videos.WC2.Death);
 
         //End the game once the video is finished
         videoPlayer.OnVideoFinished().Take(1).Subscribe(videoFinished => {
-            gamePaused = false;
             //gameOverUI.SetActive(true);
 
             //Wait some time, then end the game
             //Observable.Timer(System.TimeSpan.FromSeconds(gameOverTime)).Subscribe(e => EndGame()).AddTo(this);
             EndGame();
         }).AddTo(this);
-
+        */
         
     }
 

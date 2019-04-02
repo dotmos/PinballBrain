@@ -45,6 +45,11 @@ public class UnityVideoPlayer {
         }
     }
 
+    public void Stop() {
+        videoPlayer.Stop();
+        _OnVideoFinished(videoPlayer);
+    }
+
     void _OnVideoStarted(VideoPlayer player) {
         //Set video output, if available
         if (videoOutput != null) {

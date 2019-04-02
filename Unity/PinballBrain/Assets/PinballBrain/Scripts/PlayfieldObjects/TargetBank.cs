@@ -72,6 +72,10 @@ namespace PinballBrain {
                 }
             }
 
+#if UNITY_EDITOR
+            UnityEngine.Debug.Log("Targetbank hit switch "+switchID);
+#endif
+
             this.onTargetHit.Execute(switchID);
         }
 
@@ -129,6 +133,9 @@ namespace PinballBrain {
         public void ResetBank() {
             this.switchesPressed.Clear();
             this.onReset.Execute(this.switches);
+#if UNITY_EDITOR
+            UnityEngine.Debug.Log("Targetbank resetted");
+#endif
         }
 
         /// <summary>
