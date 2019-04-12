@@ -315,6 +315,18 @@ namespace PinballBrain {
             return BrainInterface.OnSwitchActive(switchID).Subscribe(e => IncreasePlayerScore(player, score)).AddTo(this);
         }
 
+        public IDisposable ConnectSwitchToScoreIncrease(short switchID, Func<int> scoreValue) {
+            return BrainInterface.OnSwitchActive(switchID).Subscribe(e => {
+                IncreaseCurrentPlayerScore(scoreValue());
+            }).AddTo(this);
+        }
+
+        public IDisposable ConnectSwitchToScoreIncrease(short switchID, Func<int> scoreValue, int player) {
+            return BrainInterface.OnSwitchActive(switchID).Subscribe(e => {
+                IncreasePlayerScore(player, scoreValue());
+            }).AddTo(this);
+        }
+
         public IObservable<PlayerScoreChangedEvent> OnPlayerScoreChanged(int playerID) {
             return PlayerScoreChangedCmd.Where(v => v.playerID == playerID);
         }

@@ -101,10 +101,10 @@ public class AsteroidGame : MonoBehaviour, IVideomodeGame {
         playerRigid.freezeRotation = true;
 
         //Add movement controls to player
-        brain.OnSwitchActive(0, (s) => { playerMoveLeft = -1; }).AddTo(player).AddTo(this).AddTo(this.player);
-        brain.OnSwitchInactive(0, (s) => { playerMoveLeft = 0; }).AddTo(player).AddTo(this).AddTo(this.player);
-        brain.OnSwitchActive(1, (s) => { playerMoveRight = 1; }).AddTo(player).AddTo(this).AddTo(this.player);
-        brain.OnSwitchInactive(1, (s) => { playerMoveRight = 0; }).AddTo(player).AddTo(this).AddTo(this.player);
+        brain.OnSwitchActive(GameBrain.Switches.FLIPPER_LEFT, (s) => { playerMoveLeft = -1; }).AddTo(player).AddTo(this).AddTo(this.player);
+        brain.OnSwitchInactive(GameBrain.Switches.FLIPPER_LEFT, (s) => { playerMoveLeft = 0; }).AddTo(player).AddTo(this).AddTo(this.player);
+        brain.OnSwitchActive(GameBrain.Switches.FLIPPER_RIGHT, (s) => { playerMoveRight = 1; }).AddTo(player).AddTo(this).AddTo(this.player);
+        brain.OnSwitchInactive(GameBrain.Switches.FLIPPER_RIGHT, (s) => { playerMoveRight = 0; }).AddTo(player).AddTo(this).AddTo(this.player);
 
         //Game Over if player hits something
         player.OnCollisionEnter2DAsObservable().Subscribe(e => GameOver()).AddTo(player).AddTo(this);

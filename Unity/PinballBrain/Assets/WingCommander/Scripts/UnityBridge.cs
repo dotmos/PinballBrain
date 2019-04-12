@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class UnityBridge : MonoBehaviour {
 
@@ -25,6 +25,12 @@ public class UnityBridge : MonoBehaviour {
     IVideomodeGame asteroidGame;
 
     public UnityVideoPlayer VideoPlayer { get; private set; }
+
+    [System.Serializable]
+    public class DebugStuff {
+        public List<Image> targets = new List<Image>();
+    }
+    public DebugStuff debugStuff = new DebugStuff();
 
     // Use this for initialization
     void Awake() {
@@ -65,9 +71,23 @@ public class UnityBridge : MonoBehaviour {
         this.Brain.OnBrainEvent<GameBrain.Event_StartVideoMode>().Subscribe(e => {
             this.asteroidGame.StartGame();
         }).AddTo(this);
+        
 
+        //Setup debug unity target visuals
+        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_UPPERRIGHT_1).Subscribe(e => debugStuff.targets[0].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_UPPERRIGHT_2).Subscribe(e => debugStuff.targets[1].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_UPPERRIGHT_3).Subscribe(e => debugStuff.targets[2].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_UPPERRIGHT_1).Subscribe(e => debugStuff.targets[3].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_UPPERRIGHT_2).Subscribe(e => debugStuff.targets[4].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.upperRightDropTargetbank.OnReset().Subscribe(e => {
+            foreach(Image i in debugStuff.targets) {
+                i.color = new Color(1, 1, 1, 0.2f);
+            }
+        }).AddTo(this);
+        Brain.upperRightDropTargetbank.ResetBank();
+
+        //Start the game
         Brain.StartNewGame();
-
         
     }
 

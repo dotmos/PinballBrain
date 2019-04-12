@@ -123,6 +123,8 @@ namespace PinballBrain {
 
         IDisposable ConnectSwitchToScoreIncrease(short switchID, int score);
         IDisposable ConnectSwitchToScoreIncrease(short switchID, int score, int player);
+        IDisposable ConnectSwitchToScoreIncrease(short switchID, Func<int> scoreValue);
+        IDisposable ConnectSwitchToScoreIncrease(short switchID, Func<int> scoreValue, int player);
 
         IObservable<int> OnCurrentPlayerChanged();
         IObservable<PlayerScoreChangedEvent> OnCurrentPlayerScoreChanged();
