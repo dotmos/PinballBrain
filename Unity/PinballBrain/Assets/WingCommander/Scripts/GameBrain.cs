@@ -188,8 +188,8 @@ public class GameBrain : BrainBase {
     /// </summary>
     /// <returns></returns>
     protected override IBrainInterface CreateBrainInterface() {
-            //return new ArduinoBrainInterface(4);
-            return new KeyboardBrainInterface();
+            return new ArduinoBrainInterface(4);
+            //return new KeyboardBrainInterface();
     }
 
     protected override void OnBrainInterfaceReady() {

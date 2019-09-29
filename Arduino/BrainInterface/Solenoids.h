@@ -86,5 +86,7 @@ void Solenoids_Update(int deltaTime){
       break;
     }
   }
+
+  //TODO: Enable disable solenoid hardware. Check solenoid_isActive for 1/0
 }
 

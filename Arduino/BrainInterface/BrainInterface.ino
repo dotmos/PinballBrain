@@ -33,12 +33,15 @@ int32_t read32(byte data[4]) {
 }
 
 //definitions
-#define SWITCH_MAX_COUNT 16 //Maximum amount of switches. Change to your needs.
+#define MCP_IOCOUNT 16 // I/Os available per MCP23017. If you use other hardware as port expander, change this value.
+#define SWITCH_MAX_COUNT 16 //Maximum amount of switches. Change to your needs. Should be a multitude of MCP_IOCOUNT (MCP23017 has 16 I/Os). If this is not a multitude of MCP_IOCOUNT, the remaining I/Os of the port expander will not be used.
 #define LED_MAX_COUNT 128 //Maximum amount of LEDs. Change to your needs.
-#define SOLENOID_MAX_COUNT 32 //Maximum amount of solenoid. Change to your needs.
+#define SOLENOID_MAX_COUNT 16 //Maximum amount of solenoid. Change to your needs.
 #define SOLENOID_MAX_CONCURRENT 4 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
 #define DISPLAY_MAX_COUNT 1 //Maximum amount of displays. Change to your needs.
 int display_CS[DISPLAY_MAX_COUNT] = {10}; //Chip select pins for displays
+
+
 
 //Message headers
 const byte LED_ACTIVATE = 10; // + led (short: 2 bytes) + color (3 bytes (red,green,blue))
