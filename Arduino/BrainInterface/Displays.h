@@ -1,3 +1,6 @@
+#ifndef USE_DISPLAY
+#define USE_DISPLAY
+#endif
 const int DISPLAY_FRAMELIMIT_DEFAULT = 32; //16ms = 60fps, 32ms = 30fps, 64ms = 15fps, etc.
 
 //#define DISPLAY_SERIAL_DEBUG

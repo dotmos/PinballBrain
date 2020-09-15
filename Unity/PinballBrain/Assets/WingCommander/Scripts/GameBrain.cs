@@ -10,75 +10,91 @@ public class GameBrain : BrainBase {
 
     // Switches -------------------------------------------------------------------------------------------------
     public class Switches {
-        public const short FLIPPER_LEFT = 0;
-        public const short FLIPPER_RIGHT = 1;
+        public const short FLIPPER_LEFT = 800;
+        public const short FLIPPER_RIGHT = 900;
         
-        public const short SLINGSHOT_LEFT = 12;
-        public const short SLINGSHOT_RIGHT = 13;
+        public const short SLINGSHOT_LEFT = 8;
+        public const short SLINGSHOT_RIGHT = 7;
 
-        public const short BUMPER_1 = 12;
-        public const short BUMPER_2 = 13;
-        public const short BUMPER_3 = 14;
+        public const short BUMPER_1 = 510;
+        public const short BUMPER_2 = 511;
+        public const short BUMPER_3 = 512;
 
-        public const short TARGETBANK_LOWERLEFT_1 = 33;
-        public const short TARGETBANK_LOWERLEFT_2 = 34;
-        public const short TARGETBANK_LOWERLEFT_3 = 35;
-        public const short DROPTARGETBANK_LOWERLEFT_1 = 26;
-        public const short DROPTARGETBANK_LOWERLEFT_2 = 27;
-        public const short DROPTARGETBANK_LOWERLEFT_3 = 28;
-        public const short DROPTARGETBANK_LOWERLEFT_4 = 29;
+        public const short TARGETBANK_LOWERLEFT_1 = 1;
+        public const short TARGETBANK_LOWERLEFT_2 = 2;
+        public const short TARGETBANK_LOWERLEFT_3 = 0;
+        public const short DROPTARGETBANK_LOWERLEFT_1 = 4;
+        public const short DROPTARGETBANK_LOWERLEFT_2 = 3;
+        public const short DROPTARGETBANK_LOWERLEFT_3 = 6;
+        public const short DROPTARGETBANK_LOWERLEFT_4 = 5;
 
-        public const short TARGETBANK_LOWERRIGHT_1 = 21;
-        public const short TARGETBANK_LOWERRIGHT_2 = 22;
+        public const short TARGETBANK_LOWERRIGHT_1 = 16;
+        public const short TARGETBANK_LOWERRIGHT_2 = 17;
 
-        public const short TARGETBANK_UPPERRIGHT_1 = 6;
-        public const short TARGETBANK_UPPERRIGHT_2 = 7;
-        public const short DROPTARGETBANK_UPPERRIGHT_1 = 3;
-        public const short DROPTARGETBANK_UPPERRIGHT_2 = 4;
-        public const short DROPTARGETBANK_UPPERRIGHT_3 = 5;
+        public const short TARGETBANK_UPPERRIGHT_1 = 14;
+        public const short TARGETBANK_UPPERRIGHT_2 = 13;
+        public const short DROPTARGETBANK_UPPERRIGHT_1 = 12;
+        public const short DROPTARGETBANK_UPPERRIGHT_2 = 11;
+        public const short DROPTARGETBANK_UPPERRIGHT_3 = 15;
 
-        public const short TARGETBANK_UPPERCENTER_1 = 21;
-        public const short TARGETBANK_UPPERCENTER_2 = 22;
+        public const short TARGETBANK_UPPERCENTER_1 = 9;
+        public const short TARGETBANK_UPPERCENTER_2 = 10;
 
-        public const short KICKER_UPPERRIGHT = 30;
-        public const short KICKER_CENTERRAMP = 31;
+        public const short KICKER_UPPERRIGHT = 400;
+        public const short KICKER_CENTERRAMP = 600;
 
-        public const short LEFTTUNNEL = 40;
+        public const short KICKBACK_UPPERLEFT = 300;
 
-        public const short BUMPERLANE_1 = 50;
-        public const short BUMPERLANE_2 = 51;
-        public const short BUMPERLANE_3 = 52;
+        public const short LEFTTUNNEL = 255;
+
+        public const short BUMPERLANE_1 = 255;
+        public const short BUMPERLANE_2 = 255;
+        public const short BUMPERLANE_3 = 255;
 
         public const short PLUNGER_KICK = 60;
-        public const short PLUNGER_LANE = 61;
-        public const short PLUNGER_LANE_EXIT = 62;
+        public const short PLUNGER_LANE = 255;
+        public const short PLUNGER_LANE_EXIT = 255;
 
-        public const short BALL_OUT = 70;
+        public const short BALL_OUT = 255;
+
+        public const short DEBUG_PLUNGER_FEED = 500;
     }
 
     // Solenoids --------------------------------------------------------------------------------------------------
     public class Solenoids {
+        /// <summary>
+        /// Trigger time for solenoids in ms. 1-5 seem to be good values. Even the big ones are firing with that
+        /// </summary>
+        public const byte solenoidTriggerTime = 2;
+
+
         public const byte FLIPPER_LEFT = 0;
-        public const byte FLIPPER_RIGHT = 1;
+        public const byte FLIPPER_RIGHT = 5;
 
-        public const byte SLINGSHOT_LEFT = 2;
-        public const byte SLINGSHOT_RIGHT = 3;
-        public const short slingshotActiveTime = 50;
+        public const byte SLINGSHOT_LEFT = 3;
+        public const byte SLINGSHOT_RIGHT = 2;
+        public const short slingshotActiveTime = 2;
 
-        public const byte BUMPER_1 = 4;
-        public const byte BUMPER_2 = 5;
-        public const byte BUMPER_3 = 6;
-        public const short bumperSolenoidActiveTime = 50;
+        public const byte BUMPER_1 = 10; //top left
+        public const byte BUMPER_2 = 9; //top right
+        public const byte BUMPER_3 = 11; //bottom
+        public const short bumperSolenoidActiveTime = 2;
 
-        public const byte DROPTARGET_LOWERLEFT = 7;
+        public const byte DROPTARGET_LOWERLEFT = 14;
 
-        public const byte DROPTARGET_UPPERRIGHT = 8;
+        public const byte DROPTARGET_UPPERRIGHT = 12;
 
-        public const byte KICKER_UPPERRIGHT = 9;
-        public const byte KICKER_CENTERRAMP = 10;
+        public const byte KICKER_UPPERRIGHT = 8;
+        public const byte KICKER_CENTERRAMP = 15; // DEPRECATE?
 
-        public const byte PLUNGER_FEED = 11;
-        public const byte PLUNGER_KICKER = 12;
+        public const byte PLUNGER_FEED = 4; //4
+        public const byte PLUNGER_KICKER = 7;
+        public const byte plungerKickerSolenoidActiveTime = 25;
+
+        public const byte KICKBACK_UPPERLEFT = 13;
+
+        //1 = n/a (after left flipper)
+        //6 = n/a (after right flipper)
     }
 
     // LEDS ---------------------------------------------------------------------------------------------------------
@@ -128,6 +144,10 @@ public class GameBrain : BrainBase {
         public const short BUMPERLANE_1 = 50;
         public const short BUMPERLANE_2 = 51;
         public const short BUMPERLANE_3 = 52;
+
+        public LEDData KICKBACK_UPPERLEFT_BALLIN_DATA = new LEDData(255, 128, 128, 0, 0);
+        public LEDData KICKBACK_UPPERLEFT_BALLRELEASE_DATA = new LEDData(255, 255, 255, 100, 2);
+        public const short KICKBACK_UPPERLEFT = 60;
     }
     LEDs ledData = new LEDs();
 
@@ -188,7 +208,7 @@ public class GameBrain : BrainBase {
     /// </summary>
     /// <returns></returns>
     protected override IBrainInterface CreateBrainInterface() {
-            return new ArduinoBrainInterface(4);
+            return new ArduinoBrainInterface(3);
             //return new KeyboardBrainInterface();
     }
 
@@ -206,17 +226,18 @@ public class GameBrain : BrainBase {
 
 
     protected override void SetupRules() {
-        //Just for testing: Start videomode once player reaches score of 1000
+        /*
+        //Just for testing: Start videomode once player reaches score of 10000
         OnCurrentPlayerScoreChanged().Subscribe(e => {
-            if (e.currentScore >= 1000) {
+            if (e.currentScore >= 10000) {
                 PublishBrainEvent(event_StartVideoMode);
             }
         }).AddTo(this);
-
+        */
 
         //Debug stuff
-        BrainInterface.OnSwitchActive(1).Subscribe(e => Debug.Log("Switch " + e + " active")).AddTo(this);
-        BrainInterface.OnSwitchInactive(1).Subscribe(e => Debug.Log("Switch " + e + " inactive")).AddTo(this);
+        //BrainInterface.OnSwitchActive(1).Subscribe(e => Debug.Log("Switch " + e + " active")).AddTo(this);
+        //BrainInterface.OnSwitchInactive(1).Subscribe(e => Debug.Log("Switch " + e + " inactive")).AddTo(this);
         //ConnectSwitchToLED(0, 0, 64, 16, 0);
         //ConnectSwitchToLEDBlink(1, 1, 64, 0, 16, 40, 3);
         //ConnectSwitchToLEDBlink(3, 2, 0, 64, 16, 500, 0);
@@ -248,23 +269,28 @@ public class GameBrain : BrainBase {
 
 
 
-
+        
         //Setup flippers ----------------------------------------------------------------------------------------------------------------------
         //Left
         OnSwitchActive(Switches.FLIPPER_LEFT, (switchID) => {
-            if (BallsInPlay.Value > 0) ActivateSolenoid(Solenoids.FLIPPER_LEFT);
+            if (BallsInPlay.Value > 0) {
+                ActivateSolenoid(Solenoids.FLIPPER_LEFT);
+            }
         }).AddTo(this);
         OnSwitchInactive(Switches.FLIPPER_LEFT, (switchID) => {
             DeactivateSolenoid(Solenoids.FLIPPER_LEFT);
         }).AddTo(this);
         //Right
         OnSwitchActive(Switches.FLIPPER_RIGHT, (switchID) => {
-            if (BallsInPlay.Value > 0) ActivateSolenoid(Solenoids.FLIPPER_RIGHT);
+            if (BallsInPlay.Value > 0) {
+                ActivateSolenoid(Solenoids.FLIPPER_RIGHT);
+            }
         }).AddTo(this);
         OnSwitchInactive(Switches.FLIPPER_RIGHT, (switchID) => {
             DeactivateSolenoid(Solenoids.FLIPPER_RIGHT);
         }).AddTo(this);
 
+        
         //Setup slingshots ----------------------------------------------------------------------------------------------------------------------
         ConnectSwitchToSolenoid(Switches.SLINGSHOT_LEFT, Solenoids.SLINGSHOT_LEFT, Solenoids.slingshotActiveTime);
         ConnectSwitchToSolenoid(Switches.SLINGSHOT_RIGHT, Solenoids.SLINGSHOT_RIGHT, Solenoids.slingshotActiveTime);
@@ -274,7 +300,7 @@ public class GameBrain : BrainBase {
 
         ConnectSwitchToScoreIncrease(Switches.SLINGSHOT_LEFT, 100).AddTo(this);
         ConnectSwitchToScoreIncrease(Switches.SLINGSHOT_RIGHT, 100).AddTo(this);
-
+        
         //Setup bumpers ----------------------------------------------------------------------------------------------------------------------
         ConnectSwitchToSolenoid(Switches.BUMPER_1, Solenoids.BUMPER_1, Solenoids.bumperSolenoidActiveTime);
         ConnectSwitchToSolenoid(Switches.BUMPER_2, Solenoids.BUMPER_2, Solenoids.bumperSolenoidActiveTime);
@@ -287,8 +313,7 @@ public class GameBrain : BrainBase {
         ConnectSwitchToScoreIncrease(Switches.BUMPER_1, () => { return 100 * currentBumperMultiplicator; }).AddTo(this);
         ConnectSwitchToScoreIncrease(Switches.BUMPER_2, () => { return 100 * currentBumperMultiplicator; }).AddTo(this);
         ConnectSwitchToScoreIncrease(Switches.BUMPER_3, () => { return 100 * currentBumperMultiplicator; }).AddTo(this);
-
-
+        
         //Setup lower left droptarget targetbank ----------------------------------------------------------------------------------------------------------------------
         lowerLeftDropTargetbank = new TargetBank(this, 
             new List<short>() {
@@ -300,7 +325,7 @@ public class GameBrain : BrainBase {
                 Switches.DROPTARGETBANK_LOWERLEFT_3,
                 Switches.DROPTARGETBANK_LOWERLEFT_4
             },
-            true, 500);
+            true, 2000);
         
         //Setup bank LEDs
         lowerLeftDropTargetbank.OnUniqueTargetHit(Switches.TARGETBANK_LOWERLEFT_1).Subscribe(e => SetLED(LEDs.TARGETBANK_LOWERLEFT_1, LEDAction.Activate, ledData.TARGETBANK_LOWERLEFT_DATA)).AddTo(this);
@@ -335,10 +360,10 @@ public class GameBrain : BrainBase {
         //On bank reset
         lowerLeftDropTargetbank.OnReset().Subscribe(e => {
             //Reset physical droptargets by activating the solenoid
-            ActivateSolenoid(Solenoids.DROPTARGET_LOWERLEFT, 50);
+            ActivateSolenoid(Solenoids.DROPTARGET_LOWERLEFT, Solenoids.solenoidTriggerTime);
         }).AddTo(this);
 
-        
+        /*
         //Setup lower right targetbank -----------------------------------------------------------------------------------------------------------------------
         lowerRightTargetBank = new TargetBank(this,
             new List<short> {
@@ -359,6 +384,8 @@ public class GameBrain : BrainBase {
 
             //TODO: Play animation & audio
         }).AddTo(this);
+        */
+
 
         //Setup upper right droptarget targetbank -------------------------------------------------------------------------------------------------------------------------
         upperRightDropTargetbank = new TargetBank(this,
@@ -393,9 +420,10 @@ public class GameBrain : BrainBase {
 
         upperRightDropTargetbank.OnReset().Subscribe(e => {
             //Reset physical droptargets by activating the solenoid
-            ActivateSolenoid(Solenoids.DROPTARGET_UPPERRIGHT, 50);
+            ActivateSolenoid(Solenoids.DROPTARGET_UPPERRIGHT, Solenoids.solenoidTriggerTime);
         }).AddTo(this);
 
+        /*
         //Setup upper center targetbank --------------------------------------------------------------------------------------------------------------------------
         upperCenterTargetbank = new TargetBank(this,
             new List<short>() {
@@ -411,7 +439,7 @@ public class GameBrain : BrainBase {
             DeactivateLED(LEDs.TARGETBANK_UPPERCENTER_1);
             DeactivateLED(LEDs.TARGETBANK_UPPERCENTER_2);
         }).AddTo(this);
-
+        */
 
         // Center ramp kicker -------------------------------------------------------------------------------------------------------------------------------------
         OnSwitchActive(Switches.KICKER_CENTERRAMP, (s) => {
@@ -429,10 +457,11 @@ public class GameBrain : BrainBase {
                 SetLED(LEDs.KICKER_CENTERRAMP, LEDAction.Blink, ledData.KICKER_CENTERRAMP_BALLRELEASE_DATA);
 
                 //Solenoid
-                ActivateSolenoid(Solenoids.KICKER_CENTERRAMP, 50);
+                ActivateSolenoid(Solenoids.KICKER_CENTERRAMP, Solenoids.solenoidTriggerTime);
             }).AddTo(this);
         }).AddTo(this);
 
+        
         // Upperright kicker -------------------------------------------------------------------------------------------------------------------------------------
         OnSwitchActive(Switches.KICKER_UPPERRIGHT, (s) => {
             //Play sound
@@ -449,11 +478,11 @@ public class GameBrain : BrainBase {
                 SetLED(LEDs.KICKER_UPPERRIGHT, LEDAction.Blink, ledData.KICKER_UPPERRIGHT_BALLRELEASE_DATA);
 
                 //Solenoid
-                ActivateSolenoid(Solenoids.KICKER_UPPERRIGHT, 50);
+                ActivateSolenoid(Solenoids.KICKER_UPPERRIGHT, Solenoids.solenoidTriggerTime);
             }).AddTo(this);
         }).AddTo(this);
 
-
+        /*
         // Setup left tunnel ----------------------------------------------------------------------------------------------------------------------
         ConnectSwitchToLED(Switches.LEFTTUNNEL, LEDs.LEFTTUNNEL, ledData.LEFTTUNNEL_DATA, LEDAction.Blink).AddTo(this);
         ConnectSwitchToScoreIncrease(Switches.LEFTTUNNEL, 500).AddTo(this);
@@ -480,27 +509,54 @@ public class GameBrain : BrainBase {
 
             IncreaseCurrentPlayerScore(500 * currentBumperMultiplicator);
         }).AddTo(this);
+        */
 
 
+
+        // Upper left kickback -------------------------------------------------------------------------------------------------------------------------------------
+        OnSwitchActive(Switches.KICKBACK_UPPERLEFT, (s) => {
+            //Play sound
+
+            //Add points
+            IncreaseCurrentPlayerScore(1000);
+
+            //Activate LED
+            SetLED(LEDs.KICKBACK_UPPERLEFT, LEDAction.Activate, ledData.KICKBACK_UPPERLEFT_BALLIN_DATA);
+
+            //activate kicker solenoid after a short amount of time
+            Observable.Timer(TimeSpan.FromMilliseconds(1000)).Subscribe(e => {
+                //Flash LED
+                SetLED(LEDs.KICKBACK_UPPERLEFT, LEDAction.Blink, ledData.KICKBACK_UPPERLEFT_BALLRELEASE_DATA);
+
+                //Solenoid
+                ActivateSolenoid(Solenoids.KICKBACK_UPPERLEFT, Solenoids.solenoidTriggerTime);
+            }).AddTo(this);
+        }).AddTo(this);
 
 
         //Setup ball feed and plunger ----------------------------------------------------------------------------------------------------------
+
+        //Plunger feed debug
+        OnSwitchActive(Switches.DEBUG_PLUNGER_FEED, (switchID) => {
+            ActivateSolenoid(Solenoids.PLUNGER_FEED, Solenoids.solenoidTriggerTime);
+        });
 
         //Plunger
         OnSwitchActive(Switches.PLUNGER_LANE, (switchID) => ballInPlungerLane = true).AddTo(this);
         OnSwitchInactive(Switches.PLUNGER_LANE, (switchID) => ballInPlungerLane = false).AddTo(this);
         OnSwitchActive(Switches.PLUNGER_KICK, (switchID) => {
-            if (ballInPlungerLane) ActivateSolenoid(Solenoids.PLUNGER_KICKER, 50);
+            //if (ballInPlungerLane) ActivateSolenoid(Solenoids.PLUNGER_KICKER, Solenoids.plungerKickerSolenoidActiveTime);
+            ActivateSolenoid(Solenoids.PLUNGER_KICKER, Solenoids.plungerKickerSolenoidActiveTime); 
         }).AddTo(this);
 
         
         //Next player -> reset playfield and variables. Feed new ball into plunger lane
         OnCurrentPlayerChanged().Subscribe(e => {
             //Reset targetbanks
-            bumperLaneTargetbank.ResetBank();
+            //bumperLaneTargetbank.ResetBank();
             lowerLeftDropTargetbank.ResetBank();
-            lowerRightTargetBank.ResetBank();
-            upperCenterTargetbank.ResetBank();
+            //lowerRightTargetBank.ResetBank();
+            //upperCenterTargetbank.ResetBank();
             upperRightDropTargetbank.ResetBank();
 
             //Reset variables
@@ -512,7 +568,7 @@ public class GameBrain : BrainBase {
             }).AddTo(this);
             
             //Feed ball to plunger lane
-            ActivateSolenoid(Solenoids.PLUNGER_FEED, 50);
+            ActivateSolenoid(Solenoids.PLUNGER_FEED, Solenoids.solenoidTriggerTime);
             BallsInPlay.Value++;
             
 
@@ -531,6 +587,13 @@ public class GameBrain : BrainBase {
             //TODO: Play ball out sound
             BallsInPlay.Value = Mathf.Max(BallsInPlay.Value - 1, 0);
         }).AddTo(this);
+        
+    }
 
+    public override void StartNewGame() {
+        base.StartNewGame();
+
+        //lowerLeftDropTargetbank.ResetBank();
+        //upperRightDropTargetbank.ResetBank();
     }
 }

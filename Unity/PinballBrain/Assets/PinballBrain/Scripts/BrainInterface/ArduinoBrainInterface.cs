@@ -70,6 +70,7 @@ namespace PinballBrain {
                 while (this.serialPort.HasData()) {
                     OnSerialDataReceived(this.serialPort.Read());
                 }
+                DEBUG_CheckInput();
             });
 
             Debug.Log("Serialport opened");
@@ -102,6 +103,92 @@ namespace PinballBrain {
             this.serialPort.Write(_bytesToWrite);
         }
 
+
+        void DEBUG_CheckInput() {
+            if (Input.GetKeyDown(KeyCode.LeftControl)) {
+                switchActive.OnNext(GameBrain.Switches.FLIPPER_LEFT);
+            }
+            if (Input.GetKeyDown(KeyCode.RightControl)) {
+                switchActive.OnNext(GameBrain.Switches.FLIPPER_RIGHT);
+            }
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                switchActive.OnNext(GameBrain.Switches.DEBUG_PLUNGER_FEED);
+            }
+            if (Input.GetKeyDown(KeyCode.Return)) {
+                switchActive.OnNext(GameBrain.Switches.PLUNGER_KICK);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                switchActive.OnNext(GameBrain.Switches.KICKBACK_UPPERLEFT);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
+                switchActive.OnNext(GameBrain.Switches.KICKER_UPPERRIGHT);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3)) {
+                switchActive.OnNext(GameBrain.Switches.BUMPER_1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4)) {
+                switchActive.OnNext(GameBrain.Switches.BUMPER_2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5)) {
+                switchActive.OnNext(GameBrain.Switches.BUMPER_3);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6)) {
+                switchActive.OnNext(8);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha7)) {
+                switchActive.OnNext(9);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha8)) {
+                switchActive.OnNext(10);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha9)) {
+                switchActive.OnNext(11);
+            }
+
+
+            if (Input.GetKeyUp(KeyCode.LeftControl)) {
+                switchInactive.OnNext(GameBrain.Switches.FLIPPER_LEFT);
+            }
+            if (Input.GetKeyUp(KeyCode.RightControl)) {
+                switchInactive.OnNext(GameBrain.Switches.FLIPPER_RIGHT);
+            }
+            if (Input.GetKeyUp(KeyCode.Space)) {
+                switchInactive.OnNext(GameBrain.Switches.DEBUG_PLUNGER_FEED);
+            }
+            if (Input.GetKeyUp(KeyCode.Return)) {
+                switchInactive.OnNext(GameBrain.Switches.PLUNGER_KICK);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha1)) {
+                switchInactive.OnNext(GameBrain.Switches.KICKBACK_UPPERLEFT);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha2)) {
+                switchInactive.OnNext(GameBrain.Switches.KICKER_UPPERRIGHT);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha3)) {
+                switchInactive.OnNext(GameBrain.Switches.BUMPER_1);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha4)) {
+                switchInactive.OnNext(GameBrain.Switches.BUMPER_2);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha5)) {
+                switchInactive.OnNext(GameBrain.Switches.BUMPER_3);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha6)) {
+                switchInactive.OnNext(8);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha7)) {
+                switchInactive.OnNext(9);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha8)) {
+                switchInactive.OnNext(10);
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha9)) {
+                switchInactive.OnNext(11);
+            }
+
+        }
+
+
         /// <summary>
         /// Subscribe to a switch being activated (Button pressed, rollover switch active, etc.) .
         /// </summary>
@@ -127,13 +214,16 @@ namespace PinballBrain {
         /// <param name="solenoid"></param>
         /// <param name="ms"></param>
         public void ActivateSolenoid(byte solenoid, short ms) {
-            solenoidTriggerMsg[0] = SOLENOID_TRIGGER;
-            solenoidTriggerMsg[1] = solenoid;
-            byte[] msBytes = ByteHelper.ToBytes(ms);
-            solenoidTriggerMsg[2] = msBytes[0];
-            solenoidTriggerMsg[3] = msBytes[1];
-
-            Write(solenoidTriggerMsg);
+            if (solenoid < 255) {
+                Debug.Log("Activating Solenoid " + solenoid + "for " + ms + "ms");
+                solenoidTriggerMsg[0] = SOLENOID_TRIGGER;
+                solenoidTriggerMsg[1] = solenoid;
+                byte[] msBytes = ByteHelper.ToBytes(ms);
+                solenoidTriggerMsg[2] = msBytes[0];
+                solenoidTriggerMsg[3] = msBytes[1];
+                
+                Write(solenoidTriggerMsg);
+            }
         }
 
         /// <summary>
@@ -141,10 +231,14 @@ namespace PinballBrain {
         /// </summary>
         /// <param name="solenoid"></param>
         public void ActivateSolenoid(byte solenoid) {
-            solenoidActivateMsg[0] = SOLENOID_ACTIVATE;
-            solenoidActivateMsg[1] = solenoid;
-
-            Write(solenoidActivateMsg);
+            if (solenoid < 255) {
+                Debug.Log("Activating solenoid " + solenoid);
+                solenoidActivateMsg[0] = SOLENOID_ACTIVATE;
+                solenoidActivateMsg[1] = solenoid;
+                
+                Write(solenoidActivateMsg);
+            }
+            
         }
 
         /// <summary>
@@ -152,10 +246,14 @@ namespace PinballBrain {
         /// </summary>
         /// <param name="solenoid"></param>
         public void DeactivateSolenoid(byte solenoid) {
-            solenoidDeactivateMsg[0] = SOLENOID_DEACTIVATE;
-            solenoidDeactivateMsg[0] = solenoid;
+            if (solenoid < 255) {
+                Debug.Log("Deactivating solenoid " + solenoid);
+                solenoidDeactivateMsg[0] = SOLENOID_DEACTIVATE;
+                solenoidDeactivateMsg[1] = solenoid;
 
-            Write(solenoidDeactivateMsg);
+                Write(solenoidDeactivateMsg);
+            }
+            
         }
 
         /// <summary>

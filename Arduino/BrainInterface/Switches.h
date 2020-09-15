@@ -7,6 +7,8 @@ byte switchState[SWITCH_MAX_COUNT];
 
 void Switch_Setup(){
   for(int i=0; i<SWITCH_MCP_COUNT; ++i){
+    if(i == SOLENOID_MCPID) continue; //Do NOT, NEVER EVER, do stuff with the solenoid mcp
+    
     //MCP23017
     mcp[i].begin(i);      // use mcp with address 0
     //Setup all ports as input
@@ -26,8 +28,9 @@ void Switch_Update(int deltaTime){
 
   for(int i=0; i<SWITCH_MAX_COUNT; ++i){
     int mcpID = (i/MCP_IOCOUNT);
+    int portID = i-(mcpID*MCP_IOCOUNT);
     
-    boolean pressed = !mcp[mcpID].digitalRead(i); //Negate the input, as pullUP resitors are used and mcp will trigger on GND
+    boolean pressed = !mcp[mcpID].digitalRead(portID); //Negate the input, as pullUP resitors are used and mcp will trigger on GND
     if(pressed == false && switchState[i] == 1){
       switchState[i] = 0;
       byte bytes[3];

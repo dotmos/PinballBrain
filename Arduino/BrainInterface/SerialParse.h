@@ -92,25 +92,35 @@ void Serial_Update(int deltaTime){
       byte display = Serial_GetByte();
       short image = Serial_GetShort();
 
+      #ifdef USE_DISPLAY
       Display_SetImage(display, image);
+      #endif
     }
     else if(header == DISPLAY_CLEAR_IMAGE){
       byte display = Serial_GetByte();
+      #ifdef USE_DISPLAY
       Display_ClearImage(display);
+      #endif
     }
     else if(header == DISPLAY_ANIMATION_LOOP){
       byte display = Serial_GetByte();
       short animationID = Serial_GetShort();
+      #ifdef USE_DISPLAY
       Display_LoopAnimation(display, animationID);
+      #endif
     } 
     else if(header == DISPLAY_ANIMATION_STOP){
       byte display = Serial_GetByte();
+      #ifdef USE_DISPLAY
       Display_StopAnimation(display);
+      #endif
     }
     else if(header == DISPLAY_ANIMATION_PLAY_ONCE){
       byte display = Serial_GetByte();
       short animationID = Serial_GetShort();
+      #ifdef USE_DISPLAY
       Display_PlayAnimationOnce(display, animationID);
+      #endif
     }
   }
 }

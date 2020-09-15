@@ -74,21 +74,22 @@ public class UnityBridge : MonoBehaviour {
         
 
         //Setup debug unity target visuals
-        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_UPPERRIGHT_1).Subscribe(e => debugStuff.targets[0].color = new Color(1, 1, 1, 1)).AddTo(this);
-        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_UPPERRIGHT_2).Subscribe(e => debugStuff.targets[1].color = new Color(1, 1, 1, 1)).AddTo(this);
-        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_UPPERRIGHT_3).Subscribe(e => debugStuff.targets[2].color = new Color(1, 1, 1, 1)).AddTo(this);
-        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_UPPERRIGHT_1).Subscribe(e => debugStuff.targets[3].color = new Color(1, 1, 1, 1)).AddTo(this);
-        Brain.upperRightDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_UPPERRIGHT_2).Subscribe(e => debugStuff.targets[4].color = new Color(1, 1, 1, 1)).AddTo(this);
-        Brain.upperRightDropTargetbank.OnReset().Subscribe(e => {
-            foreach(Image i in debugStuff.targets) {
-                i.color = new Color(1, 1, 1, 0.2f);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_LOWERLEFT_1).Subscribe(e => debugStuff.targets[0].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_LOWERLEFT_2).Subscribe(e => debugStuff.targets[1].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_LOWERLEFT_3).Subscribe(e => debugStuff.targets[2].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.DROPTARGETBANK_LOWERLEFT_4).Subscribe(e => debugStuff.targets[3].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_LOWERLEFT_1).Subscribe(e => debugStuff.targets[4].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_LOWERLEFT_2).Subscribe(e => debugStuff.targets[5].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnUniqueTargetHit(GameBrain.Switches.TARGETBANK_LOWERLEFT_3).Subscribe(e => debugStuff.targets[6].color = new Color(1, 1, 1, 1)).AddTo(this);
+        Brain.lowerLeftDropTargetbank.OnReset().Subscribe(e => {
+            for (int i = 0; i < debugStuff.targets.Count; i++) {
+                Image img = debugStuff.targets[i];
+                img.color = new Color(1, 1, 1, 0.2f);
             }
         }).AddTo(this);
-        Brain.upperRightDropTargetbank.ResetBank();
 
         //Start the game
         Brain.StartNewGame();
-        
     }
 
     private void OnGUI() {

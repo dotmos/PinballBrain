@@ -8,7 +8,7 @@ const int ledSerialPin = 1;
 #include "Adafruit_MCP23017.h"
 
 //Display stuff
-//#include <Adafruit_GFX.h>    // Core graphics library
+////#include <Adafruit_GFX.h>    // Core graphics library
 #include <Teensy_ST7735.h> // Hardware-specific library
 #include <SPI.h>
 
@@ -34,11 +34,13 @@ int32_t read32(byte data[4]) {
 
 //definitions
 #define MCP_IOCOUNT 16 // I/Os available per MCP23017. If you use other hardware as port expander, change this value.
-#define SWITCH_MAX_COUNT 16 //Maximum amount of switches. Change to your needs. Should be a multitude of MCP_IOCOUNT (MCP23017 has 16 I/Os). If this is not a multitude of MCP_IOCOUNT, the remaining I/Os of the port expander will not be used.
+#define SWITCH_MAX_COUNT 48 //Maximum amount of switches. Change to your needs. Should be a multitude of MCP_IOCOUNT (MCP23017 has 16 I/Os). If this is not a multitude of MCP_IOCOUNT, the remaining I/Os of the port expander will not be used.
 #define LED_MAX_COUNT 128 //Maximum amount of LEDs. Change to your needs.
 #define SOLENOID_MAX_COUNT 16 //Maximum amount of solenoid. Change to your needs.
-#define SOLENOID_MAX_CONCURRENT 4 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
+#define SOLENOID_MAX_CONCURRENT 2 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
 #define DISPLAY_MAX_COUNT 1 //Maximum amount of displays. Change to your needs.
+#define SOLENOID_MCPID 3 //id of the solenoid mcp23017. TODO: Add more IDs
+#define SOLENOID_MAX_ACTIVE_MS 25 //maximum milliseconds a solenoid can be active. Used for safety reasons when using TriggerSolenoid with an interval
 int display_CS[DISPLAY_MAX_COUNT] = {10}; //Chip select pins for displays
 
 
@@ -67,7 +69,7 @@ const byte DISPLAY_ANIMATION_PLAY_ONCE = 24; // + display (byte) + animation (sh
 #include "Switches.h"
 #include "LEDs.h"
 #include "Solenoids.h"
-#include "Displays.h"
+//#include "Displays.h"
 #include "SerialParse.h"
 
 //Core
@@ -77,6 +79,7 @@ void setup() {
 
   // put your setup code here, to run once:
     pinMode(13, OUTPUT);  // use the p13 LED as debugging
+    digitalWrite(13, HIGH);
 
     //while (!Serial);
 
@@ -85,7 +88,7 @@ void setup() {
     Serial_Setup();
     LEDs_Setup();
     Solenoids_Setup();
-    Display_Setup();
+    //Display_Setup();
 }
 
 
@@ -100,5 +103,5 @@ void loop() {
 
   Solenoids_Update(deltaTime);
   LEDs_Update(deltaTime);
-  Display_Update(deltaTime);
+  //Display_Update(deltaTime);
 }
