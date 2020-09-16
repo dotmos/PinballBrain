@@ -37,7 +37,7 @@ int32_t read32(byte data[4]) {
 #define SWITCH_MAX_COUNT 48 //Maximum amount of switches. Change to your needs. Should be a multitude of MCP_IOCOUNT (MCP23017 has 16 I/Os). If this is not a multitude of MCP_IOCOUNT, the remaining I/Os of the port expander will not be used.
 #define LED_MAX_COUNT 128 //Maximum amount of LEDs. Change to your needs.
 #define SOLENOID_MAX_COUNT 16 //Maximum amount of solenoid. Change to your needs.
-#define SOLENOID_MAX_CONCURRENT 2 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
+#define SOLENOID_MAX_CONCURRENT 3 //max amount of solenoids being active at the same time.  Change to your needs. (Make sure your power supply can handle amount of solenoids).
 #define DISPLAY_MAX_COUNT 1 //Maximum amount of displays. Change to your needs.
 #define SOLENOID_MCPID 3 //id of the solenoid mcp23017. TODO: Add more IDs
 #define SOLENOID_MAX_ACTIVE_MS 25 //maximum milliseconds a solenoid can be active. Used for safety reasons when using TriggerSolenoid with an interval

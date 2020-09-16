@@ -31,21 +31,19 @@ void Solenoids_Setup(){
 }
 
 
-void _Solenoid_Activate(byte solenoid){
-  digitalWrite(13, HIGH);
-  
-  solenoid_isActive[solenoid] = 1;
-  // todo
-  //TODO: Enable disable solenoid hardware. Check solenoid_isActive for 1/0
-  mcp_solenoid.digitalWrite(solenoid, HIGH);
+void _Solenoid_Activate(byte solenoid){  
+  if(solenoid_isActive[solenoid] == 0 && solenoids_active < SOLENOID_MAX_CONCURRENT){
+    mcp_solenoid.digitalWrite(solenoid, HIGH);
+    solenoid_isActive[solenoid] = 1;
+    solenoids_active += 1;
+  }
 }
 void _Solenoid_Deactivate(byte solenoid){
-  digitalWrite(13, LOW);
-  
-  solenoid_isActive[solenoid] = 0;
-  // todo
-  //TODO: Enable disable solenoid hardware. Check solenoid_isActive for 1/0
-  mcp_solenoid.digitalWrite(solenoid, LOW);
+  if(solenoid_isActive[solenoid] == 1){
+    mcp_solenoid.digitalWrite(solenoid, LOW);
+    solenoid_isActive[solenoid] = 0;
+    solenoids_active -= 1;  
+  }
 }
 
 //Mark a solenoid for activation
@@ -73,24 +71,21 @@ void Solenoids_Update(int deltaTime){
   for(int i=0; i<SOLENOID_MAX_COUNT; ++i){
     switch(solenoid_state[i]){
       case SOLENOID_STATE_ACTIVATE:
-        if(solenoids_active < SOLENOID_MAX_CONCURRENT && solenoid_isActive[i] == 0){
-          _Solenoid_Activate(i);
+        _Solenoid_Activate(i);
+        if(solenoid_isActive[i] == 1){
           if(solenoid_activeTime[i] > 0){
             solenoid_state[i] = SOLENOID_STATE_TRIGGER;
           } else {
             solenoid_state[i] = SOLENOID_STATE_IDLE;
           }
-          solenoids_active += 1;
         }
       break;
 
       case SOLENOID_STATE_DEACTIVATE:
-        if(solenoid_isActive[i] == 1){
           _Solenoid_Deactivate(i);
-          solenoid_state[i] = SOLENOID_STATE_IDLE;  
-          solenoids_active -= 1;
-        }
-        
+          if(solenoid_isActive[i] == 0){
+            solenoid_state[i] = SOLENOID_STATE_IDLE;  
+          }
       break;
 
       case SOLENOID_STATE_TRIGGER:

@@ -325,7 +325,7 @@ public class GameBrain : BrainBase {
                 Switches.DROPTARGETBANK_LOWERLEFT_3,
                 Switches.DROPTARGETBANK_LOWERLEFT_4
             },
-            true, 2000);
+            true, 500);
         
         //Setup bank LEDs
         lowerLeftDropTargetbank.OnUniqueTargetHit(Switches.TARGETBANK_LOWERLEFT_1).Subscribe(e => SetLED(LEDs.TARGETBANK_LOWERLEFT_1, LEDAction.Activate, ledData.TARGETBANK_LOWERLEFT_DATA)).AddTo(this);
@@ -538,8 +538,9 @@ public class GameBrain : BrainBase {
 
         //Plunger feed debug
         OnSwitchActive(Switches.DEBUG_PLUNGER_FEED, (switchID) => {
+            Debug.Log("Mep");
             ActivateSolenoid(Solenoids.PLUNGER_FEED, Solenoids.solenoidTriggerTime);
-        });
+        }).AddTo(this);
 
         //Plunger
         OnSwitchActive(Switches.PLUNGER_LANE, (switchID) => ballInPlungerLane = true).AddTo(this);
